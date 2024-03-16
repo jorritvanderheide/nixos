@@ -12,6 +12,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "lappie"; # Define your hostname.
 
@@ -90,6 +91,7 @@
     fish
     fishPlugins.hydro
     fishPlugins.sponge
+    fprintd
     git
   ];
 
@@ -97,6 +99,10 @@
   programs.fish.enable = true;
 
   # List services that you want to enable:
+
+  # Fprint (fingerprint authentication)
+  services.fprintd.enable = true;
+  security.pam.services.login.fprintAuth = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
