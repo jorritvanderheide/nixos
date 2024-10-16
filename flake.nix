@@ -1,24 +1,22 @@
-#    ___  ___             __
-#  /'___\/\_ \           /\ \
-# /\ \__/\//\ \      __  \ \ \/'\      __
-# \ \ ,__\ \ \ \   /'__`\ \ \ , <    /'__`\
-#  \ \ \_/  \_\ \_/\ \L\.\_\ \ \\`\ /\  __/
-#   \ \_\   /\____\ \__/.\_\\ \_\ \_\ \____\
-#    \/_/   \/____/\/__/\/_/ \/_/\/_/\/____/
+#   __ _       _
+#  / _| | __ _| | _____
+# | |_| |/ _` | |/ / _ \
+# |  _| | (_| |   <  __/
+# |_| |_|\__,_|_|\_\___|
+#
 #
 # Minimal flake template
 {
   description = "Minimal flake template";
 
   inputs = {
+    # Nix inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    systems.url = "github:nix-systems/default-linux";
     nix-hardware.url = "github:nixos/nixos-hardware";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Nix Community inputs
+    disko.url = "github:nix-community/disko";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = {...} @ inputs: let
@@ -32,5 +30,9 @@
       };
 
       # Users
+      homeManagerConfigurations = {
+        # Username
+        username = mkHome ./users/username;
+      };
     };
 }
