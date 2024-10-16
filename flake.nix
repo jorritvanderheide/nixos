@@ -23,13 +23,14 @@
 
   outputs = {...} @ inputs: let
     utils = import ./lib/utils {inherit inputs;};
-  in {
-    # Hosts
-    nixosConfigurations = {
-      # Hostname
-      hostname = utils.mkSystem "x86_64-linux" ./hosts/hostname;
-    };
+  in
+    with utils; {
+      # Hosts
+      nixosConfigurations = {
+        # Hostname
+        hostname = mkSystem "x86_64-linux" ./hosts/hostname;
+      };
 
-    # Users
-  };
+      # Users
+    };
 }

@@ -11,26 +11,13 @@
 in rec {
   mkSystem = system: config:
     inputs.nixpkgs.lib.nixosSystem {
+      system = system;
       specialArgs = {
         inherit inputs outputs;
-        crossSystem = {
-          hostPlatform = inputs.nixpkgs.lib.systems.platforms.x86_64-linux; # Set host platform here
-        };
       };
       modules = [
         ../../hosts/common
         config
       ];
     };
-
-  # mkHome = config:
-  #   inputs.home-manager.lib.homeManagerConfiguration {
-  #     pkgs = pkgsFor sys;
-  #     extraSpecialArgs = {
-  #       inherit inputs outputs;
-  #     };
-  #     modules = [
-  #       config
-  #     ];
-  #   };
 }
