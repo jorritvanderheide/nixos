@@ -12,7 +12,7 @@
   ];
 in {
   # Setup networking
-  networking.enable = true;
+  networking.networkmanager.enable = true;
 
   # End of config
   system.stateVersion = "24.05"; # Do not change or remove
