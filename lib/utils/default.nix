@@ -23,7 +23,6 @@ in rec {
   # Buildables
   mkSystem = config:
     inputs.nixpkgs.lib.nixosSystem {
-      system = system;
       pkgs = pkgs;
       specialArgs = {
         inherit inputs outputs;

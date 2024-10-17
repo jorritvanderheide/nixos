@@ -8,14 +8,13 @@
 # Home configuration for username.
 {pkgs, ...}: let
   imports = [
-    ../../modules/impermanence
   ];
 in {
-  home.username = "username";
-  home.homeDirectory = "/home/username";
-
-  # Packages
-  home.packages = [
-    # Add user Packages
-  ];
+  home = {
+    username = "username";
+    homeDirectory = "/home/username";
+    packages = [
+      # Add packages here
+    ];
+  };
 }

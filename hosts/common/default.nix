@@ -24,9 +24,6 @@ in {
     experimental-features = ["flakes" "nix-command"];
   };
 
-  # Timezone
-  time.timeZone = "Europe/Amsterdam";
-
   # Setup networking
   networking.networkmanager.enable = true;
 
@@ -34,7 +31,6 @@ in {
   environment.systemPackages = with pkgs; [
     agenix
     alejandra
-    displaylink
     git
   ];
 
