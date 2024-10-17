@@ -8,7 +8,7 @@
 # Home configuration for Gnome.
 {
   config,
-  lib,
+  inputs,
   pkgs,
   backgroundPaths,
   ...
@@ -87,7 +87,7 @@
 
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled = true;
-      night-light-temperature = lib.hm.gvariant.mkUint32 4700;
+      night-light-temperature = pkgs.lib.hm.gvariant.mkUint32 4700;
     };
 
     "org/gnome/settings-daemon/plugins/power" = {

@@ -8,18 +8,21 @@
 # Home configuration for jorrit.
 {
   config,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  backgroundPaths = {
+    dark = "file:///home/jorrit/Pictures/Backgrounds/night.jpg";
+    light = "file:///home/jorrit/Pictures/Backgrounds/day.jpg";
+  };
+
+  gnomeConfig = import ../../modules/home-manager/gnome {
+    inherit config inputs pkgs backgroundPaths;
+  };
+in {
   imports = [
-    ../../modules/home-manager/gnome
-    {
-      # Set the background for Gnome
-      backgroundPaths = {
-        light = "file:///home/jorrit/Pictures/Backgrounds/day.jpg";
-        dark = "file:///home/jorrit/Pictures/Backgrounds/night.jpg";
-      };
-    }
+    gnomeConfig
   ];
 
   home = {
