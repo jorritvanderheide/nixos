@@ -20,7 +20,6 @@ in {
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel
 
     ../../modules/nixos/power
-
     ./hardware-configuration.nix
   ];
 
@@ -39,6 +38,7 @@ in {
 
   # Networking
   networking = {
+    networkmanager.enable = true;
     hostName = "framework";
   };
 

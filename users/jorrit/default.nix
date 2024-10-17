@@ -23,18 +23,14 @@
 in {
   imports = [
     gnomeConfig
+    ./impermanence.nix
   ];
 
   # User configuration
-  users.groups.persist = {};
-  users.users."jorrit" = {
-    extraGroups = ["docker" "libvirtd" "networkmanager" "persist" "plugdev" "wheel"];
-  };
 
   home = {
     username = "jorrit";
     homeDirectory = "/home/jorrit";
-    hashedPasswordFile = config.age.secrets.jorrit.path;
     packages = with pkgs; [
       # Apps
       brave
@@ -60,11 +56,6 @@ in {
 
       # Other
       android-tools
-    ];
-
-    # Permissions for impermanence
-    tmpfiles.rules = [
-      "d /persist/home/jorrit 0700 jorrit users -"
     ];
   };
 

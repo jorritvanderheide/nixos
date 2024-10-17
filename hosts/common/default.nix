@@ -13,9 +13,7 @@
   ...
 }: let
   imports = [
-    inputs.agenix.nixosModules.age
-
-    ../../modules/impermanence
+    ../../modules/nixos/impermanence
   ];
 in {
   # Nix
@@ -28,7 +26,7 @@ in {
   time.timeZone = "Europe/Amsterdam";
 
   # Setup networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   # Graphical services
   services.xserver.enable = true;
@@ -43,6 +41,20 @@ in {
     home-manager
   ];
 
+  # Programs
+  programs = {
+    # SSH
+    ssh.startAgent = true;
+
+    # Fish
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting
+      '';
+    };
+  };
+
   # Services
   services = {
     # SSH
@@ -56,6 +68,15 @@ in {
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
   '';
+
+  # User setup
+  users.users."jorrit" = {
+    isNormalUser = true;
+    extraGroups = ["docker" "libvirtd" "networkmanager" "persist" "plugdev" "wheel"];
+    initialPassword = "10220408";
+    # hashedPasswordFile = config.age.secrets.jorrit.path;
+    shell = pkgs.fish;
+  };
 
   # End of config
   system.stateVersion = "24.05"; # Do not change or remove

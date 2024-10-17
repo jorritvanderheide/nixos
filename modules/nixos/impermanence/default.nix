@@ -11,6 +11,28 @@
   lib,
   ...
 }: {
+  # Add user group
+  users.groups.persist = {};
+
+  # Temporary files
+  systemd.tmpfiles.rules = [
+    "d /persist/home 0777 root root -"
+    "d /persist/home/jorrit 0700 jorrit users -" # Add for users
+  ];
+
+  # Temporary files and directories configuration
+  systemd.services.adjustNixosConfigPermissions = {
+    description = "Adjusting permissions for /persist/system/etc/nixos/ to allow group modifications";
+    wantedBy = ["multi-user.target"];
+    script = ''
+      find /persist/system/etc/nixos/ -type d -exec chmod 0770 {} \;
+      find /persist/system/etc/nixos/ -type f -exec chmod 0660 {} \;
+      chown -R :persist /persist/system/etc/nixos/
+    '';
+    serviceConfig.Type = "oneshot";
+    serviceConfig.RemainAfterExit = true;
+  };
+
   # Configure boot
   fileSystems."/persist".neededForBoot = true;
 
