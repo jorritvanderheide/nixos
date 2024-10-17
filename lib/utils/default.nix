@@ -15,9 +15,10 @@
   system = "x86_64-linux";
 in rec {
   # Package helpers
-  pkgs = inputs.nixpkgs.legacyPackages.${system}.extend (final: prev: {
-    inherit overlays;
-  });
+  pkgs = import inputs.nixpkgs {
+    inherit system overlays;
+    config.allowUnfree = true;
+  };
 
   # Buildables
   mkSystem = config:
