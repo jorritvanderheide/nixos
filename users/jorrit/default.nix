@@ -6,9 +6,13 @@
 # |__/
 #
 # Home configuration for jorrit.
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
-    ../../modules/home-manager/gnome.nix
+    ../../modules/home-manager/gnome
     {
       # Set the background for Gnome
       backgroundPaths = {

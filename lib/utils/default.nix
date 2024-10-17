@@ -15,9 +15,10 @@
   system = "x86_64-linux";
 in rec {
   # Package helpers
-  pkgs = inputs.nixpkgs.legacyPackages.${system}.extend (self: prev: {
-    inherit overlays;
-  });
+  pkgs = import inputs.nixpkgs {
+    inherit system overlays;
+    config.allowUnfree = true;
+  };
 
   # Buildables
   mkSystem = config:
@@ -35,7 +36,7 @@ in rec {
 
   mkHome = config:
     inputs.home-manager.lib.homeManagerConfiguration {
-      activationPackage = inputs.home-manager.activationPackage;
+      pkgs = pkgs;
       extraSpecialArgs = {
         inherit inputs outputs;
       };

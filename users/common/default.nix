@@ -6,7 +6,12 @@
 #
 #
 # Common home configuration for all users.
-{config, ...}: let
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
   imports = [
     inputs.home-manager.nixosModules.default
 

@@ -33,7 +33,7 @@
       };
 
       # Users
-      homeManagerConfigurations = {
+      homeConfigurations = {
         # Jorrit
         jorrit = mkHome ./users/jorrit;
       };
