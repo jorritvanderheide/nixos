@@ -25,6 +25,12 @@ in {
     gnomeConfig
   ];
 
+  # User configuration
+  users.groups.persist = {};
+  users.users."jorrit" = {
+    extraGroups = ["docker" "libvirtd" "networkmanager" "persist" "plugdev" "wheel"];
+  };
+
   home = {
     username = "jorrit";
     homeDirectory = "/home/jorrit";

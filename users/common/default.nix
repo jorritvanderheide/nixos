@@ -19,9 +19,6 @@
   ];
 in {
   home = {
-    # Extra user groups
-    extraGroups = ["docker" "libvirtd" "networkmanager" "persist" "plugdev" "wheel"];
-
     # Set default shell
     shell = pkgs.fish;
 
