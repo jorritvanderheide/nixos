@@ -6,14 +6,21 @@
 #
 #
 # Host configuration for hostname.
-{...}: let
+{
+  config,
+  inputs,
+  ...
+}: let
   diskoConfig = import ./disko.nix {device = "/dev/nvme0n1";};
-
+in {
   imports = [
+    diskoConfig
+    inputs.disko.nixosModules.default
+
     ./hardware-configuration.nix
   ];
-in {
-  # TODO: remove
+
+  # Boot
   boot = {
     loader = {
       efi.canTouchEfiVariables = true;
@@ -26,12 +33,12 @@ in {
     };
   };
 
+  # Graphical services
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  # End TODO
 
-  # Set hostname
+  # Networking
   networking = {
     hostName = "hostname";
   };

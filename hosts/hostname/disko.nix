@@ -5,7 +5,7 @@
 #  \__,_|_|___/_|\_\___/
 #
 #
-# Disk partitioning configuration.
+# Disko partitioning configuration.
 {device ? throw "Set this to your disk device, e.g. /dev/nvme0n1", ...}: {
   disko.devices = {
     disk.main = {

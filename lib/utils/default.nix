@@ -5,39 +5,45 @@
 #  \__,_|\__|_|_|___/
 #
 #
-# Utility functions for the configuration
-{inputs}: let
+# Utility functions library.
+{
+  inputs,
+  overlays,
+  ...
+}: let
   outputs = inputs.self.outputs;
+  system = "x86_64-linux";
 in rec {
-  # Package helper
-  pkgsForAllSystems = pkgs:
-    inputs.nixpkgs.lib.genAttrs [
-      "x86_64-linux"
-      # Add more supported systems
-    ]
-    (system: pkgs inputs.nixpkgs.legacyPackages.${system});
+  # Package helpers
+  pkgs = inputs.nixpkgs.legacyPackages.${system}.extend (final: prev: {
+    inherit overlays;
+  });
 
   # Buildables
-  mkSystem = system: config:
+  mkSystem = config:
     inputs.nixpkgs.lib.nixosSystem {
       system = system;
+      pkgs = pkgs;
       specialArgs = {
         inherit inputs outputs;
       };
       modules = [
-        ../../hosts/common
         config
+
+        ../../hosts/common
       ];
     };
 
   mkHome = config:
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = pkgsForAllSystems."x86_64-linux"; # Defaults to x86_64-linux
+      pkgs = pkgs;
       extraSpecialArgs = {
         inherit inputs outputs;
       };
       modules = [
         config
+
+        ../../users/common
       ];
     };
 }

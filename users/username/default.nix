@@ -6,11 +6,16 @@
 #
 #
 # Home configuration for username.
-{...}: let
+{pkgs, ...}: let
   imports = [
     ../../modules/impermanence
   ];
 in {
-  # End of config
-  home-manager.stateVersion = "24.05"; # Do not change or remove
+  home.username = "username";
+  home.homeDirectory = "/home/username";
+
+  # Packages
+  home.packages = [
+    # Add user Packages
+  ];
 }

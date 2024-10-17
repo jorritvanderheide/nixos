@@ -5,14 +5,38 @@
 #  \___\___/|_| |_| |_|_| |_| |_|\___/|_| |_|
 #
 #
-# Common host configuration for all systems.
-{...}: let
+# Common system configuration for all systems.
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}: let
   imports = [
+    inputs.agenix.nixosModules.age
+
     ../../modules/impermanence
   ];
 in {
+  # Nix
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = ["flakes" "nix-command"];
+  };
+
+  # Timezone
+  time.timeZone = "Europe/Amsterdam";
+
   # Setup networking
   networking.networkmanager.enable = true;
+
+  # System packages
+  environment.systemPackages = with pkgs; [
+    agenix
+    alejandra
+    displaylink
+    git
+  ];
 
   # End of config
   system.stateVersion = "24.05"; # Do not change or remove

@@ -14,19 +14,22 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-hardware.url = "github:nixos/nixos-hardware";
 
-    # Nix Community inputs
+    # Community inputs
+    agenix.url = "github:ryantm/agenix";
     disko.url = "github:nix-community/disko";
+    home-manager.url = "github:nix-community/home-manager";
     impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = {...} @ inputs: let
-    utils = import ./lib/utils {inherit inputs;};
+    overlays = import ./overlays {inherit inputs;};
+    utils = import ./lib/utils {inherit inputs overlays;};
   in
     with utils; {
       # Hosts
       nixosConfigurations = {
         # Hostname
-        hostname = mkSystem "x86_64-linux" ./hosts/hostname;
+        hostname = mkSystem ./hosts/hostname;
       };
 
       # Users
