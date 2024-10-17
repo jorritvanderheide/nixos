@@ -115,7 +115,7 @@
         "type": "github"
       }
     },
-    "nix-hardware": {
+    "nixos-hardware": {
       "locked": {
         "lastModified": 1728729581,
         "narHash": "sha256-oazkQ/z7r43YkDLLQdMg8oIB3CwWNb+2ZrYOxtLEWTQ=",
@@ -200,7 +200,7 @@
         "disko": "disko",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
-        "nix-hardware": "nix-hardware",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4"
       }
     },

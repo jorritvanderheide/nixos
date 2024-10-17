@@ -13,6 +13,32 @@
     ../../modules/impermanence
   ];
 in {
+  home = {
+    # Extra user groups
+    extraGroups = ["docker" "libvirtd" "networkmanager" "persist" "plugdev" "wheel"];
+
+    # Set default shell
+    shell = pkgs.fish;
+
+    # Permissions for impermanence
+    tmpfiles.rules = [
+      "d /persist/home 0777 root root -"
+    ];
+  };
+
+  # Programs configuration
+
+  ## SSH
+  programs.ssh.startAgent = true;
+
+  ## Shell configuration
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting
+    '';
+  };
+
   # End of config
   home.stateVersion = "24.05"; # Do not change or remove
 

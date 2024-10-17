@@ -12,7 +12,7 @@
   inputs = {
     # Nix inputs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-hardware.url = "github:nixos/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Community inputs
     agenix.url = "github:ryantm/agenix";
@@ -28,14 +28,14 @@
     with utils; {
       # Hosts
       nixosConfigurations = {
-        # Hostname
-        hostname = mkSystem ./hosts/hostname;
+        # Framework
+        framework = mkSystem ./hosts/framework;
       };
 
       # Users
       homeManagerConfigurations = {
-        # Username
-        username = mkHome ./users/username;
+        # Jorrit
+        jorrit = mkHome ./users/jorrit;
       };
     };
 }
