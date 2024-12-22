@@ -60,7 +60,6 @@ in
       networking.hostId = cfg.zfs.hostId;
       environment.systemPackages = [pkgs.zfs-prune-snapshots];
        boot = {
-        kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
         kernelParams = [
           "nohibernate"
           "zfs.zfs_arc_max=17179869184"
