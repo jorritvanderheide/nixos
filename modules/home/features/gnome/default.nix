@@ -11,47 +11,28 @@ in {
   ];
 
   options.myHome.gnome = {
-    backgroundPaths = lib.mkOption {
-      default = {
-        light = "";
-        dark = "";
-      };
-      description = "Paths to light and dark background images.";
+    gnomeExtensions = lib.mkOption {
+      # type = lib.types.listOf lib.types.pkgs; # TODO: fix type
+      default = [];
+      description = ''
+        extensions to use
+      '';
     };
   };
 
   config = {
-    # Gnome extensions
-    home.packages = with pkgs;
-      [
-        blackbox-terminal
-      ]
-      ++ [
-        gnomeExtensions.alphabetical-app-grid
-        gnomeExtensions.appindicator
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.burn-my-windows
-        gnomeExtensions.caffeine
-        gnomeExtensions.clipboard-indicator
-        gnomeExtensions.color-picker
-        gnomeExtensions.dash-to-dock
-        gnomeExtensions.impatience
-        gnomeExtensions.mpris-label
-        gnomeExtensions.night-theme-switcher
-        gnomeExtensions.steal-my-focus-window
-        gnomeExtensions.unite
-      ];
-
-    # Impermanene
-    myHome.impermanence = {
-      directories = [
-        ".config/burn-my-windows"
-      ];
-      files = [
-        ".config/gnome-initial-setup-done"
-      ];
+    # Persist directories
+    myHome = lib.mkIf config.impermanence.enable {
+      impermanence = {
+        directories = [
+          ".config/burn-my-windows"
+        ];
+        files = [
+          ".config/gnome-initial-setup-done"
+        ];
+      };
     };
-
+  
     # Dconf settings
     dconf.settings = {
       "ca/desrt/dconf-editor" = {
@@ -59,8 +40,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = cfg.backgroundPaths.light;
-        picture-uri-dark = cfg.backgroundPaths.dark;
+        picture-uri = "file://${builtins.toPath ../../assets/images/wallpaper-light.jpg}";
+        picture-uri-dark = "file://${builtins.toPath ../../assets/images/wallpaper-dark.jpg}"
       };
 
       "org/gnome/desktop/datetime" = {
@@ -70,7 +51,7 @@ in {
       "org/gnome/desktop/interface" = {
         clock-show-date = false;
         enable-hot-corners = false;
-        icon-theme = "Tela-circle";
+        # icon-theme = "Tela-circle"; # TODO: make declarative
         font-hinting = "none";
         show-battery-percentage = true;
       };
@@ -151,7 +132,7 @@ in {
       };
 
       "org/gnome/shell/extensions/burn-my-windows" = {
-        active-profile = "/persist/home/jorrit/.config/burn-my-windows/profiles/1718655678027134.conf";
+        active-profile = "/persist/home/jorrit/.config/burn-my-windows/profiles/1718655678027134.conf"; # TODO: make declarative
       };
 
       "org/gnome/shell/extensions/clipboard-indicator" = {
@@ -203,26 +184,10 @@ in {
       "org/gtk/gtk4/settings/file-chooser" = {
         show-directories-first = false;
       };
-
-      # Other dconf apps
-      "com/raggesilver/BlackBox" = {
-        easy-copy-paste = true;
-        remember-window-size = true;
-        show-headerbar = false;
-        style-preference = lib.hm.gvariant.mkUint32 2;
-        terminal-bell = false;
-        terminal-padding = with lib.hm.gvariant;
-          mkTuple
-          [
-            (mkUint32 24)
-            (mkUint32 24)
-            (mkUint32 24)
-            (mkUint32 24)
-          ];
-        theme-dark = "One Dark";
-        working-directory-mode = 1;
-      };
     };
+
+    # Gnome extensions
+    home.packages = cfg.gnomeExtensions;
 
     # Triple buffering patch for Mutter
     nixpkgs.overlays = [
@@ -231,10 +196,10 @@ in {
           mutter = gnomePrev.mutter.overrideAttrs (old: {
             src = pkgs.fetchFromGitLab {
               domain = "gitlab.gnome.org";
+              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
               owner = "vanvugt";
               repo = "mutter";
               rev = "triple-buffering-v4-46";
-              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
             };
           });
         });

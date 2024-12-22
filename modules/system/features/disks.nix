@@ -32,13 +32,6 @@ in
         '';
       };
     };
-    impermanence.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = ''
-        wipe the root directory on boot
-      '';
-    };
   };
 
   config = lib.mkMerge [
@@ -172,7 +165,7 @@ in
     })
 
     # Impermanence
-    (lib.mkIf cfg.impermanence.enable {
+    (lib.mkIf config.mySystem.impermanence.enable {
       boot.initrd.postDeviceCommands =
       lib.mkAfter ''
         zpool import zroot

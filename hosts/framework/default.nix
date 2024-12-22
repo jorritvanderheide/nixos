@@ -1,17 +1,16 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./hardware.nix
   ];
 
   config = {
-    # System configuration
+    # mySystem configuration
     mySystem = {
       ## Features
-      nix.enable = true;
-      gnome.enable = true;
       impermanence.enable = true;
-
+      
+      ### Disks
       disks = {
         enable = true;
         zfs = {
@@ -19,18 +18,43 @@
           encrypt = true;
           disk = "nvme0n1";
         };
-        impermanence.enable = true;
       };
 
-      users.enable = true;
-      home-users = {
-        "jorrit" = {
-          userConfig = ./users/jorrit;
-          userSettings = {
-            initialPassword = "10220408";
-          };
-        };
+      ### Gnome
+      gnome = {
+        enable = true;
+        excludePackages = with pkgs; [
+          baobab
+          epiphany
+          geary
+          gnome-calendar
+          gnome-characters
+          gnome-clocks
+          gnome-connections
+          gnome-console
+          gnome-contacts
+          gnome-maps
+          gnome-music
+          gnome-tour
+          gnome-weather
+          gnome-text-editor
+          simple-scan
+          totem
+          xterm
+          yelp
+        ];
       };
+    };
+
+    # TODO: Make module
+    users.users.jorrit = {
+      extraGroups = [
+        "libvirtd"
+        "networkmanager"
+        "wheel"
+      ];
+      initialPassword = "10220408";
+      isNormalUser = true;
     };
 
     # End of config

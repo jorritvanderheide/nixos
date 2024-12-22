@@ -3,9 +3,11 @@
   inputs,
   lib,
   ...
-}: let
+}:
+let
   cfg = config.mySystem.impermanence;
-in {
+in
+{
   imports = [
     inputs.impermanence.nixosModules.impermanence
   ];
@@ -14,23 +16,21 @@ in {
     directories = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
-      description = "Directories to persist";
+      description = ''
+        directories to persist
+      '';
     };
     files = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [];
-      description = "Files to persist";
+      description = ''
+        files to persist
+      '';
     };
   };
 
   config = {
-    # Allow home-manager to modify user directories
-    programs.fuse.userAllowOther = true;
-
-    # Configure boot
-    fileSystems."/persist".neededForBoot = true;
-
-    # Setup persistence directories
+    # Setup persist directories
     environment.persistence."/persist/system" = {
       hideMounts = true;
       directories =
@@ -47,9 +47,14 @@ in {
       files =
         [
           "/etc/machine-id"
-          { file = "/etc/nix/id_rsa"; parentDirectory = { mode = "0700"; }; }
         ]
         ++ cfg.files;
     };
+
+    # Mark as needed for boot
+    fileSystems."/persist".neededForBoot = true;
+
+    # Allow home-manager to modify user directories
+    programs.fuse.userAllowOther = true;
   };
 }

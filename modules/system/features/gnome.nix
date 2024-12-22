@@ -1,31 +1,28 @@
 
-{pkgs, ...}: {
-  # Enable Gnome
-  services = {
-    xserver.enable = true;
-    xserver.displayManager.gdm.enable = true;
-    xserver.desktopManager.gnome.enable = true;
+{config, lib, pkgs, ...}:
+let
+cfg = config.mySystem.gnome;
+in
+{
+  options.mySystem.gnome = {
+    excludePackages = lib.mkOption {
+      # type = lib.types.listOf lib.types.pkgs; # TODO: fix type
+      default = [];
+      description = ''
+        packages to exclude
+      '';
+    };
   };
 
-  # Eclude packages
-  environment.gnome.excludePackages = with pkgs; [
-    baobab
-    epiphany
-    geary
-    gnome-calendar
-    gnome-characters
-    gnome-clocks
-    gnome-connections
-    gnome-console
-    gnome-contacts
-    gnome-maps
-    gnome-music
-    gnome-tour
-    gnome-weather
-    gnome-text-editor
-    simple-scan
-    totem
-    xterm
-    yelp
-  ];
+  config = {
+    # Exclude packages
+    environment.gnome.excludePackages = cfg.excludePackages;
+
+    # Enable Gnome
+    services = {
+      xserver.enable = true;
+      xserver.displayManager.gdm.enable = true;
+      xserver.desktopManager.gnome.enable = true;
+    };
+  };
 }
