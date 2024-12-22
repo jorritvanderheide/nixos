@@ -88,13 +88,13 @@ in
                 size = "1024M";
                 type = "EF00";
                 content = {
-                    type = "filesystem";
-                    format = "vfat";
-                    mountpoint = "/boot";
-                    mountOptions = [
-                        "defaults"
-                        "umask=0077"
-                    ];
+                  type = "filesystem";
+                  format = "vfat";
+                  mountpoint = "/boot";
+                  mountOptions = [
+                      "defaults"
+                      "umask=0077"
+                  ];
                 };
               };
               luks = lib.mkIf cfg.zfs.encrypt {
