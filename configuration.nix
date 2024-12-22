@@ -1,7 +1,7 @@
-{ config, ... }: {
-  inputs = [
+{ ... }: {
+  imports = [
     ./disko.nix
-  ]
+  ];
 
   config.hosts.disks = {
     enable = true;
@@ -10,6 +10,6 @@
       encrypt = true;
       disk = "nvme0n1";
       impermanence = true;
-    }
+    };
   };
 }

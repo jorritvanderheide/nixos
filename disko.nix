@@ -9,7 +9,7 @@ in
       default = false;
       description = "
         enable custom disk configuration
-      "
+      ";
     };
     zfs = {
       enable = lib.mkOption {
