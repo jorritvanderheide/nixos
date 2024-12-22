@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.hosts.disks;
 in
@@ -53,9 +53,7 @@ in
     (lib.mkIf cfg.enable {
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
-    });
-
-   
+    })
 
     # Zfs
     (lib.mkIf cfg.zfs.enable {
@@ -179,14 +177,14 @@ in
           };
         };
       };
+    })
 
-      # Impermanence
-      (lib.mkIf cfg.impermanence.enable {
-        boot.initrd.postDeviceCommands =
-        lib.mkAfter ''
-          zfs rollback -r zroot/root@empty
-        '';
-      });
-    });
+    # Impermanence
+    (lib.mkIf cfg.impermanence.enable {
+      boot.initrd.postDeviceCommands =
+      lib.mkAfter ''
+        zfs rollback -r zroot/root@empty
+      '';
+    })
   ];
 }
