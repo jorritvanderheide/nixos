@@ -1,16 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.hosts.disks;
+  cfg = config.mySystem.disks;
 in
 {
-  options.hosts.disks = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "
-        enable custom disk configuration
-      ";
-    };
+  options.mySystem.disks = {
     zfs = {
       enable = lib.mkOption {
         type = lib.types.bool;

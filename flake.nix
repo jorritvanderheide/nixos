@@ -13,12 +13,23 @@
     impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = {...}@inputs: {
+  outputs = {...}@inputs:
+  let
+    myLib = import ./lib/myLib {inherit inputs;};
+  in
+  {
+    # System configurations
     nixosConfigurations = {
-      framework = inputs.nixpkgs.legacyPackages.x86_64-linux.nixos [
-        inputs.disko.nixosModules.disko
-        ./configuration.nix
-       ];
+      framework = myLib.mkSystem "x86_64-linux" ./hosts/framework;
     };
+
+    # Home configurations
+    homeConfigurations = {
+      "jorrit@framework" = myLib.mkHome "x86_64-linux" ./hosts/framework/users/jorrit;
+    };
+
+    # Modules
+    nixosModules.default = ./modules/system;
+    homeManagerModules.default = ./modules/home;
   };
 }
