@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware.nix
-    ./disko
+    ./disko.nix
   ];
 
   config = {
@@ -11,16 +11,12 @@
     hosts.disks = {
       enable = true;
       zfs = {
-        hostId = "fd6b58";
+        hostId = "fd6b588e";
         encrypt = true;
         disk = "nvme0n1";
-        impermanence = true;
       };
+      impermanence.enable = true;
     };
-
-    # Use the systemd-boot EFI boot loader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "framework";
     networking.networkmanager.enable = true;

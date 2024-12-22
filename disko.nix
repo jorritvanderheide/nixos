@@ -38,13 +38,13 @@ in
           zfs reservation
         '';
       };
-      impermanence = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = ''
-          wipe the root directory on boot
-        '';
-      };
+    };
+    impermanence.enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        wipe the root directory on boot
+      '';
     };
   };
 
@@ -183,6 +183,7 @@ in
     (lib.mkIf cfg.impermanence.enable {
       boot.initrd.postDeviceCommands =
       lib.mkAfter ''
+        zpool import zroot
         zfs rollback -r zroot/root@empty
       '';
     })
