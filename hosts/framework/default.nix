@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./hardware.nix
+    ./hardware
   ];
 
   config = {
