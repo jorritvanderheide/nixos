@@ -48,7 +48,7 @@ in {
       "org/gnome/desktop/interface" = {
         clock-show-date = false;
         enable-hot-corners = false;
-        # icon-theme = "Tela-circle"; # TODO: make declarative
+        icon-theme = "Tela-circle";
         font-hinting = "none";
         show-battery-percentage = true;
       };

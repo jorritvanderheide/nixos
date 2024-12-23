@@ -21,6 +21,9 @@
 
       ## CLI
       figlet
+
+      # Themes
+      tela-circle-icon-theme
     ];
 
     # myHome configuration
