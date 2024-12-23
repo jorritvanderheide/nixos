@@ -3,6 +3,7 @@
   inputs,
   lib,
   myLib,
+  pkgs,
   ...
 }:
 let
@@ -20,7 +21,6 @@ let
     (myLib.filesIn ./features);
 in {
   imports = [
-    inputs.disko.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
   ]
   ++ features;
@@ -41,4 +41,11 @@ in {
 
   # Time
   time.timeZone = "Europe/Amsterdam";
+
+  # System packages
+  environment.systemPackages = with pkgs; [
+    alejandra
+    home-manager
+    nixd
+  ];
 }

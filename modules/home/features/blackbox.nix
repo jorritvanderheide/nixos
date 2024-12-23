@@ -1,4 +1,4 @@
-{...}:
+{lib, pkgs, ...}:
 {
   dconf.settings = {
     "com/raggesilver/BlackBox" = {

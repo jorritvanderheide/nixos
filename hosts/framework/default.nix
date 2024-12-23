@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware.nix
+    ./users/jorrit.nix # TODO: move to user config
   ];
 
   config = {
@@ -9,6 +10,7 @@
     mySystem = {
       ## Features
       impermanence.enable = true;
+      secure-boot.enable = true;
       
       ### Disks
       disks = {

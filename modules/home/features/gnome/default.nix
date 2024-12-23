@@ -22,7 +22,7 @@ in {
 
   config = {
     # Persist directories
-    myHome = lib.mkIf config.impermanence.enable {
+    myHome = lib.mkIf config.myHome.impermanence.enable {
       impermanence = {
         directories = [
           ".config/burn-my-windows"
@@ -41,7 +41,7 @@ in {
 
       "org/gnome/desktop/background" = {
         picture-uri = "file://${builtins.toPath ../../assets/images/wallpaper-light.jpg}";
-        picture-uri-dark = "file://${builtins.toPath ../../assets/images/wallpaper-dark.jpg}"
+        picture-uri-dark = "file://${builtins.toPath ../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {

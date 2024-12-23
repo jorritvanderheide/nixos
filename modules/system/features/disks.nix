@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let
   cfg = config.mySystem.disks;
 in
 {
+  imports = [
+    inputs.disko.nixosModules.default
+  ];
+
   options.mySystem.disks = {
     zfs = {
       enable = lib.mkOption {
