@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.mySystem.fish;
+  cfg = config.myHome.fish;
 in {
-  options.mySystem.fish = {
+  options.myHome.fish = {
     plugins = lib.mkOption {
       type = lib.types.listOf (lib.types.submodule {
         options = {

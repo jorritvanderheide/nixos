@@ -8,9 +8,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-
-    # Enable fish integration
-    fish.enable = true;
   };
 
   # Conditionally persist directories
