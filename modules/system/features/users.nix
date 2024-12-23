@@ -9,7 +9,7 @@
       options = {
         userConfig = lib.mkOption {
           type = lib.types.path;
-          default = ../../../hosts/${config.hostname}/users/${config.home.username}.nix;
+          default = ../../../hosts/${config.hostname}/users/jorrit.nix; # TODO: make dynamic
           description = "path to the user's home configuration.";
         };
         userSettings = lib.mkOption {

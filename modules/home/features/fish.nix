@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.myHome.fish;
+  cfg = config.mySystem.fish;
 in {
-  options.myHome.fish = {
+  options.mySystem.fish = {
     plugins = lib.mkOption {
       type = lib.types.listOf (lib.types.submodule {
         options = {
@@ -32,7 +32,6 @@ in {
 
   config = {
     programs.fish = {
-      enable = true;
       interactiveShellInit = ''
         set -g fish_greeting
       '';

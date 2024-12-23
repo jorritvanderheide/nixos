@@ -8,56 +8,58 @@
     outputs.homeManagerModules.default
   ];
 
-  # Home
-  home.username = "jorrit";
-  home.homeDirectory = lib.mkDefault "/home/jorrit";
+  config = {
+    # Home
+    home.username = "jorrit";
+    home.homeDirectory = lib.mkDefault "/home/jorrit";
 
-  # Packages
-  home.packages = with pkgs; [
-    ## Fonts
-    cascadia-code
-    inter
+    # Packages
+    home.packages = with pkgs; [
+      ## Fonts
+      cascadia-code
+      inter
 
-    ## CLI
-    figlet
-  ];
+      ## CLI
+      figlet
+    ];
 
-  # myHome configuration
-  myHome = {
-    ## Features
-    blackbox.enable = true;
-    brave.enable = true;
-    direnv.enable = true;
-    fish.enable = true;
-    impermanence.enable = true;
-    vscode.enable = true;
+    # myHome configuration
+    myHome = {
+      ## Features
+      blackbox.enable = true;
+      brave.enable = true;
+      direnv.enable = true;
+      fish.enable = true;
+      impermanence.enable = true;
+      vscode.enable = true;
 
-    ### Git
-    git = {
-      enable = true;
-      userName = "jorritvanderheide";
-      userEmail = "35707261+jorritvanderheide@users.noreply.github.com";
-    };
+      ### Git
+      git = {
+        enable = true;
+        userName = "jorritvanderheide";
+        userEmail = "35707261+jorritvanderheide@users.noreply.github.com";
+      };
 
-    ### Gnome
-    gnome = {
-      enable = true;
-      gnomeExtensions = with pkgs; [
-        # TODO: Gnome extensions use dconf for configuration. This still needs to be modularized.
-        gnomeExtensions.alphabetical-app-grid
-        gnomeExtensions.appindicator
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.burn-my-windows
-        gnomeExtensions.caffeine
-        gnomeExtensions.clipboard-indicator
-        gnomeExtensions.color-picker
-        gnomeExtensions.dash-to-dock
-        gnomeExtensions.impatience
-        gnomeExtensions.mpris-label
-        gnomeExtensions.night-theme-switcher
-        gnomeExtensions.steal-my-focus-window
-        gnomeExtensions.unite
-      ];
+      ### Gnome
+      gnome = {
+        enable = true;
+        gnomeExtensions = with pkgs; [
+          # TODO: Gnome extensions use dconf for configuration. This still needs to be modularized.
+          gnomeExtensions.alphabetical-app-grid
+          gnomeExtensions.appindicator
+          gnomeExtensions.blur-my-shell
+          gnomeExtensions.burn-my-windows
+          gnomeExtensions.caffeine
+          gnomeExtensions.clipboard-indicator
+          gnomeExtensions.color-picker
+          gnomeExtensions.dash-to-dock
+          gnomeExtensions.impatience
+          gnomeExtensions.mpris-label
+          gnomeExtensions.night-theme-switcher
+          gnomeExtensions.steal-my-focus-window
+          gnomeExtensions.unite
+        ];
+      };
     };
   };
 }
