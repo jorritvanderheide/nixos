@@ -1,5 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
 {
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.lanzaboote.nixosModules.lanzaboote
   ];
@@ -10,7 +15,7 @@
   # Enable lanzaboote
   boot.lanzaboote = {
     enable = true;
-    pkiBundle = "/etc/secureboot";
+    pkiBundle = "/var/lib/sbctl";
   };
 
   # Support packages
@@ -20,7 +25,7 @@
 
   mySystem = lib.mkIf config.mySystem.impermanence.enable {
     impermanence.directories = [
-      "/etc/secureboot"
+      "/var/lib/sbctl"
     ];
   };
 }

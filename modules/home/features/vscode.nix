@@ -50,8 +50,11 @@ in {
           "workbench.colorTheme" = "One Dark Pro";
 
           # Nix settings
-          "nix.enableLanguageServer" = true;
           "nix.serverPath" = "nixd";
+          "nix.enableLanguageServer" = true;
+          "nixpkgs" = {
+            "expr" = "import <nixpkgs> { }";
+          };
           "nix.serverSettings" = {
             "nixd" = {
               "formatting" = {
@@ -71,10 +74,8 @@ in {
         // cfg.userSettings;
     };
 
-   
-
-  myHome = lib.mkIf config.myHome.impermanence.enable {
-    impermanence.directories = [
+    myHome = lib.mkIf config.myHome.impermanence.enable {
+      impermanence.directories = [
         ".config/Code"
         ".vscode"
       ];

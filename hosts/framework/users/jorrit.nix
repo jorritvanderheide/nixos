@@ -1,10 +1,27 @@
-
 {
   lib,
   outputs,
   pkgs,
   ...
 }: {
+  imports = [
+    outputs.homeManagerModules.default
+  ];
+
+  # Home
+  home.username = "jorrit";
+  home.homeDirectory = lib.mkDefault "/home/jorrit";
+
+  # Packages
+  home.packages = with pkgs; [
+    ## Fonts
+    cascadia-code
+    inter
+
+    ## CLI
+    figlet
+  ];
+
   # myHome configuration
   myHome = {
     ## Features
@@ -14,7 +31,7 @@
     fish.enable = true;
     impermanence.enable = true;
     vscode.enable = true;
-    
+
     ### Git
     git = {
       enable = true;
@@ -25,7 +42,8 @@
     ### Gnome
     gnome = {
       enable = true;
-      gnomeExtensions = with pkgs; [ # TODO: Gnome extensions use dconf for configuration. This still needs to be modularized.
+      gnomeExtensions = with pkgs; [
+        # TODO: Gnome extensions use dconf for configuration. This still needs to be modularized.
         gnomeExtensions.alphabetical-app-grid
         gnomeExtensions.appindicator
         gnomeExtensions.blur-my-shell
@@ -42,18 +60,4 @@
       ];
     };
   };
-
-  # Home
-  home.username = "jorrit";
-  home.homeDirectory = lib.mkDefault "/home/jorrit";
-
-  # Packages
-  home.packages = with pkgs; [
-    ## Fonts
-    cascadia-code
-    inter
-
-    ## CLI
-    figlet
-  ];
 }

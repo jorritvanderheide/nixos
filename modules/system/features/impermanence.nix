@@ -3,11 +3,9 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   cfg = config.mySystem.impermanence;
-in
-{
+in {
   imports = [
     inputs.impermanence.nixosModules.impermanence
   ];

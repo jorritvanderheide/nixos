@@ -42,7 +42,8 @@ in {
             name = "hydro";
             src = pkgs.fishPlugins.hydro;
           }
-        ] ++ cfg.plugins;
+        ]
+        ++ cfg.plugins;
       shellAliases =
         {
           # General

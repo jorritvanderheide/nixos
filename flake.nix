@@ -17,11 +17,9 @@
     };
   };
 
-  outputs = {...}@inputs:
-  let
+  outputs = {...} @ inputs: let
     myLib = import ./lib/myLib {inherit inputs;};
-  in
-  {
+  in {
     # System configurations
     nixosConfigurations = {
       framework = myLib.mkSystem "x86_64-linux" ./hosts/framework;

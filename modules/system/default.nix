@@ -3,12 +3,10 @@
   inputs,
   lib,
   myLib,
-  pkgs,
   ...
-}:
-let
+}: let
   cfg = config.mySystem;
-  
+
   # Enable features
   features =
     myLib.extendModules
@@ -20,20 +18,26 @@ let
     })
     (myLib.filesIn ./features);
 in {
-  imports = [
-    inputs.home-manager.nixosModules.home-manager
-  ]
-  ++ features;
+  imports =
+    [
+      inputs.home-manager.nixosModules.home-manager
+    ]
+    ++ features;
 
   # Networking
   networking.hostName = "framework";
   networking.networkmanager.enable = true;
 
   # Nix
-  nix.settings = {
-    auto-optimise-store = true;
-    experimental-features = ["flakes" "nix-command"];
-    warn-dirty = false;
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["flakes" "nix-command"];
+      warn-dirty = false;
+    };
+    extraOptions = ''
+      trusted-users = root jorrit
+    ''; # TODO: make modular
   };
 
   # Nixpkgs
@@ -41,11 +45,4 @@ in {
 
   # Time
   time.timeZone = "Europe/Amsterdam";
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    alejandra
-    home-manager
-    nixd
-  ];
 }

@@ -1,5 +1,8 @@
-{lib, pkgs, ...}:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
       easy-copy-paste = true;

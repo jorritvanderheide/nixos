@@ -27,12 +27,9 @@ in {
         directories = [
           ".config/burn-my-windows"
         ];
-        files = [
-          ".config/gnome-initial-setup-done"
-        ];
       };
     };
-  
+
     # Dconf settings
     dconf.settings = {
       "ca/desrt/dconf-editor" = {
@@ -40,8 +37,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = "file://${builtins.toPath ../../assets/images/wallpaper-light.jpg}";
-        picture-uri-dark = "file://${builtins.toPath ../../assets/images/wallpaper-dark.jpg}";
+        picture-uri = "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
+        picture-uri-dark = "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {
@@ -132,7 +129,7 @@ in {
       };
 
       "org/gnome/shell/extensions/burn-my-windows" = {
-        active-profile = "/persist/home/jorrit/.config/burn-my-windows/profiles/1718655678027134.conf"; # TODO: make declarative
+        active-profile = "/home/jorrit/.config/burn-my-windows/profiles/1734873759007423.conf";
       };
 
       "org/gnome/shell/extensions/clipboard-indicator" = {

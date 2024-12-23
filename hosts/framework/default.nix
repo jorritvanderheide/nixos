@@ -1,17 +1,17 @@
-{ config, pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware.nix
-    ./users/jorrit.nix # TODO: move to user config
   ];
 
   config = {
     # mySystem configuration
     mySystem = {
       ## Features
+      format.enable = true;
+      home.enable = true;
       impermanence.enable = true;
       secure-boot.enable = true;
-      
+
       ### Disks
       disks = {
         enable = true;
@@ -46,17 +46,17 @@
           yelp
         ];
       };
-    };
 
-    # TODO: Make module
-    users.users.jorrit = {
-      extraGroups = [
-        "libvirtd"
-        "networkmanager"
-        "wheel"
-      ];
-      initialPassword = "10220408";
-      isNormalUser = true;
+      # TODO: cleanup
+      users.enable = true;
+      home-users = {
+        "jorrit" = {
+          userConfig = ./users/jorrit.nix;
+          userSettings = {
+            initialPassword = "10220408";
+          };
+        };
+      };
     };
 
     # End of config

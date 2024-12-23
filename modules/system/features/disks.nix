@@ -1,8 +1,12 @@
-{ config, inputs, lib, pkgs, ... }:
-let
-  cfg = config.mySystem.disks;
-in
 {
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.mySystem.disks;
+in {
   imports = [
     inputs.disko.nixosModules.default
   ];
@@ -49,12 +53,12 @@ in
     (lib.mkIf cfg.zfs.enable {
       networking.hostId = cfg.zfs.hostId;
       environment.systemPackages = [pkgs.zfs-prune-snapshots];
-       boot = {
+      boot = {
         kernelParams = [
           "nohibernate"
           "zfs.zfs_arc_max=17179869184"
         ];
-        supportedFilesystems = [ "vfat" "zfs" ];
+        supportedFilesystems = ["vfat" "zfs"];
         zfs = {
           devNodes = "/dev/disk/by-id/";
           forceImportAll = true;
@@ -81,8 +85,8 @@ in
                   format = "vfat";
                   mountpoint = "/boot";
                   mountOptions = [
-                      "defaults"
-                      "umask=0077"
+                    "defaults"
+                    "umask=0077"
                   ];
                 };
               };
@@ -170,8 +174,7 @@ in
 
     # Impermanence
     (lib.mkIf config.mySystem.impermanence.enable {
-      boot.initrd.postDeviceCommands =
-      lib.mkAfter ''
+      boot.initrd.postDeviceCommands = lib.mkAfter ''
         zpool import zroot
         zfs rollback -r zroot/root@empty
       '';
