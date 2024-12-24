@@ -7,7 +7,6 @@
     # mySystem configuration
     mySystem = {
       ## Features
-      fish.enable = true;
       format.enable = true;
       home.enable = true;
       impermanence.enable = true;

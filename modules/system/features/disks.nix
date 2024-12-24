@@ -45,7 +45,10 @@ in {
   config = lib.mkMerge [
     # Defaut
     (lib.mkIf cfg.enable {
-      boot.loader.systemd-boot.enable = true;
+      boot.loader.systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
       boot.loader.efi.canTouchEfiVariables = true;
     })
 
@@ -174,10 +177,24 @@ in {
 
     # Impermanence
     (lib.mkIf config.mySystem.impermanence.enable {
-      boot.initrd.postDeviceCommands = lib.mkAfter ''
-        zpool import zroot
-        zfs rollback -r zroot/root@empty
-      '';
+      boot.initrd.systemd.enable = true;
+      boot.initrd.systemd.services.rollback = {
+        description = "Rollback BTRFS root subvolume to a pristine state";
+        wantedBy = [
+          "initrd.target"
+        ];
+        after = [
+          "systemd-cryptsetup@enc.service"
+        ];
+        before = [
+          "sysroot.mount"
+        ];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = ''
+          zfs rollback -r zroot/root@empty
+        '';
+      };
     })
   ];
 }
