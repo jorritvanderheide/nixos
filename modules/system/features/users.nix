@@ -2,6 +2,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options.mySystem.home-users = lib.mkOption {
@@ -24,11 +25,14 @@
   };
 
   config = {
+    programs.fish.enable = true; # TODO: move peferred shell out of users module
+
     users.users = builtins.mapAttrs (
       name: user:
         {
           isNormalUser = true;
           extraGroups = ["libvirtd" "networkmanager" "wheel"];
+          shell = pkgs.fish;
         }
         // user.userSettings
     ) (config.mySystem.home-users);
