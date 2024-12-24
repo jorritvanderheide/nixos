@@ -76,5 +76,8 @@ in {
         }
         // cfg.shellAliases;
     };
+
+    # Set as default shell
+    users.defaultUserShell = pkgs.zsh;
   };
 }

@@ -48,7 +48,8 @@
         ];
       };
 
-      # TODO: cleanup
+      # Users
+      # TODO: cleanup module
       users.enable = true;
       home-users = {
         "jorrit" = {
