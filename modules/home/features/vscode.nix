@@ -74,11 +74,18 @@ in {
         // cfg.userSettings;
     };
 
+    # Conditionally enable persist
     myHome = lib.mkIf config.myHome.impermanence.enable {
       impermanence.directories = [
         ".config/Code"
         ".vscode"
       ];
     };
+
+    # Allow as unfree package
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "vscode"
+      ];
   };
 }
