@@ -60,6 +60,28 @@
       };
     };
 
+    # Networking
+    networking.hostName = "framework";
+    networking.networkmanager.enable = true;
+
+    # Nix
+    nix = {
+      settings = {
+        auto-optimise-store = true;
+        experimental-features = ["flakes" "nix-command"];
+        warn-dirty = false;
+      };
+      extraOptions = ''
+        trusted-users = root jorrit
+      ''; # TODO: make modular
+    };
+
+    # Nixpkgs
+    nixpkgs.config.allowUnfree = true;
+
+    # Time
+    time.timeZone = "Europe/Amsterdam";
+
     # End of config
     system.stateVersion = "24.11"; # Do not change
   };

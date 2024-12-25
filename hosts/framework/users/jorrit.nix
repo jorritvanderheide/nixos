@@ -65,5 +65,11 @@
         ];
       };
     };
+
+    # Nixpkgs
+    nixpkgs.config.allowUnfree = true;
+
+    # End of config
+    home.stateVersion = "24.11"; # Do not change
   };
 }
