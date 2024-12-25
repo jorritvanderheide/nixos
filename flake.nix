@@ -1,16 +1,20 @@
 {
   inputs = {
-    # NixOS modules
+    # Official sources
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    # Community modules
-    disko.url = "github:nix-community/disko";
+    # Community sources
+    disko.url = "github:nix-community/disko"; # Disk management
+    impermanence.url = "github:nix-community/impermanence"; # Ephemeral system configs
+
+    ## User environment management
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
+
+    ## Bootloader management
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +22,7 @@
   };
 
   outputs = {...} @ inputs: let
-    myLib = import ./lib/myLib {inherit inputs;};
+    myLib = import ./lib/myLib {inherit inputs;}; # Load custom utility library
   in {
     # System configurations
     nixosConfigurations = {
@@ -30,8 +34,7 @@
       "jorrit@framework" = myLib.mkHome "x86_64-linux" ./hosts/framework/users/jorrit.nix;
     };
 
-    # Modules
-    nixosModules.default = ./modules/system;
-    homeManagerModules.default = ./modules/home;
+    nixosModules.default = ./modules/system; # System modules
+    homeManagerModules.default = ./modules/home; # Home module
   };
 }

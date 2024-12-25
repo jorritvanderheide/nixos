@@ -1,3 +1,4 @@
+# TODO: clean up module
 {inputs, ...}: let
   outputs = inputs.self.outputs;
   myLib = import ./default.nix {inherit inputs;};

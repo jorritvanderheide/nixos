@@ -34,6 +34,7 @@
       direnv.enable = true;
       fish.enable = true;
       impermanence.enable = true;
+      signal.enable = true;
       vscode.enable = true;
 
       ### Git
