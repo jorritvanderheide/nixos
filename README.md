@@ -12,7 +12,7 @@ This repository contains a modular NixOS and Home Manager configuration. Some ke
 
 Follow these steps to install and configure the system:
 
-1. **Disable secure boot**: In the [mySystem configuration](<link>), disable secure boot for the initial installation. You can re-enable it after the first boot.
+1. **Disable secure boot**: In the [mySystem configuration](<hosts/framework/default.nix>), disable secure boot for the initial installation. You can re-enable it after the first boot.
 
 2. **Configure disk**: Define the disk for installation in the disk module section of the [mySystem configuration](<hosts/framework/default.nix>).
 
