@@ -15,12 +15,21 @@
   # Packages
   environment.systemPackages = with pkgs; [
     iio-sensor-proxy # Auto-brightness on Gnome
+    easyeffects # Audio profile for Framework
   ];
 
   # Services
   services = {
     ## Driver updates
     fwupd.enable = true;
+
+    ## Audio
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
 
     ## Fingerprint
     fprintd.enable = true;

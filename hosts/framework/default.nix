@@ -83,6 +83,9 @@
     # Time
     time.timeZone = "Europe/Amsterdam";
 
+    # Security
+    security.rtkit.enable = true; # For PipeWire
+
     # End of config
     system.stateVersion = "24.11"; # Do not change
   };
