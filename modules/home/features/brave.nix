@@ -1,3 +1,4 @@
+# Home manager module that configures Brave browser
 {
   config,
   lib,
@@ -8,6 +9,7 @@
     brave
   ];
 
+  # Conditionally persist directories
   myHome = lib.mkIf config.myHome.impermanence.enable {
     impermanence.directories = [
       ".config/BraveSoftware/Brave-Browser"

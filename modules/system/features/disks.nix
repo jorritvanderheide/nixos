@@ -1,3 +1,4 @@
+# System module that configures the disk layout and ZFS settings using Disko
 {
   config,
   inputs,

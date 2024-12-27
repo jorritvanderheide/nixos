@@ -1,3 +1,4 @@
+# Home manager module that imports and enables all home manager modules
 {
   config,
   lib,

@@ -1,3 +1,4 @@
+# System module that configures the Nixd language server and Alejandra formatter
 {
   inputs,
   pkgs,

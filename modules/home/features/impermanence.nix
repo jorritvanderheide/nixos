@@ -1,3 +1,4 @@
+# Home manager module that configures the persistence of home directories
 {
   config,
   inputs,

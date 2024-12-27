@@ -1,3 +1,4 @@
+# Home manager module that configures Gnome keybindings
 {...}: {
   dconf.settings = {
     # Remove unused bindings
@@ -60,7 +61,7 @@
       toggle-message-tray = [];
     };
 
-    # Set used bindings
+    # Set standard bindings
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
       move-to-center = ["<Super>Space"];

@@ -1,3 +1,4 @@
+# System module that configures the persistence of system directories
 {
   config,
   inputs,

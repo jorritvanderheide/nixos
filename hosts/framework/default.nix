@@ -1,3 +1,4 @@
+# System configuration for Framework
 {pkgs, ...}: {
   imports = [
     ./hardware

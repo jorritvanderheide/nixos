@@ -1,3 +1,4 @@
+# System module that configures a standard Gnome setup
 {
   config,
   lib,
@@ -16,7 +17,7 @@ in {
   };
 
   config = {
-    # Exclude packages
+    # Packages to exclude from install
     environment.gnome.excludePackages = cfg.excludePackages;
 
     # Enable Gnome

@@ -1,3 +1,4 @@
+# Home manager module that configures Direnv
 {
   config,
   lib,

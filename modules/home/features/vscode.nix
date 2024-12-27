@@ -1,3 +1,4 @@
+# Home manager module that configures Visual Studio Code
 # TODO: clean
 {
   config,

@@ -1,3 +1,4 @@
+# System module that configures user configuration
 # TODO: cleanup
 {
   config,

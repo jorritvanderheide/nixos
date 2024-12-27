@@ -1,3 +1,4 @@
+# System module that configures Home Manager
 # TODO: cleanup
 {
   config,

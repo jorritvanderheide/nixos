@@ -1,3 +1,4 @@
+# Hardware configuration for Framework
 {inputs, ...}: {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module

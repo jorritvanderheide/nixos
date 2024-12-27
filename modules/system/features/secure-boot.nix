@@ -1,3 +1,4 @@
+# System module that configures a secure boot setup using Lanzaboote and Plymouth
 {
   config,
   inputs,
