@@ -53,6 +53,9 @@ in {
           # Nix settings
           "nix.serverPath" = "nixd";
           "nix.enableLanguageServer" = true;
+          "nix.hiddenLanguageServerErrors" = [
+            "textDocument/definition"
+          ];
           "nixpkgs" = {
             "expr" = "import <nixpkgs> { }";
           };
