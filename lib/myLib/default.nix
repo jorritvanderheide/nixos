@@ -1,3 +1,4 @@
+# Custom library for helpers, buildables, and extenders
 # TODO: clean up module
 {inputs, ...}: let
   outputs = inputs.self.outputs;
