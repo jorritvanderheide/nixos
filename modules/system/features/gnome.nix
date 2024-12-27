@@ -2,6 +2,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.mySystem.gnome;
@@ -22,9 +23,14 @@ in {
 
     # Enable Gnome
     services = {
-      xserver.enable = true;
-      xserver.displayManager.gdm.enable = true;
-      xserver.desktopManager.gnome.enable = true;
+      xserver = {
+        enable = true;
+        excludePackages = with pkgs; [
+          xterm
+        ];
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+      };
     };
   };
 }
