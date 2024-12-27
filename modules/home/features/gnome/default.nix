@@ -26,6 +26,7 @@ in {
       impermanence = {
         directories = [
           ".config/burn-my-windows"
+          ".config/easyeffects"
         ];
       };
     };
