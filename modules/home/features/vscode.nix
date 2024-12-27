@@ -55,6 +55,7 @@ in {
           "nix.enableLanguageServer" = true;
           "nix.hiddenLanguageServerErrors" = [
             "textDocument/definition"
+            "textDocument/documentHighlight"
           ];
           "nixpkgs" = {
             "expr" = "import <nixpkgs> { }";
