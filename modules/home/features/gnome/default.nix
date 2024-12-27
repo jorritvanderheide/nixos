@@ -27,6 +27,9 @@
         directories = [
           ".config/burn-my-windows"
         ];
+        files = [
+          ".local/share/icc/framework.icm"
+        ];
       };
     };
 
