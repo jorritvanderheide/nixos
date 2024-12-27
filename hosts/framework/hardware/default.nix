@@ -1,9 +1,5 @@
 # Hardware configuration for Framework
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module
     ./hardware.nix
@@ -12,24 +8,14 @@
   # Enable TPM
   boot.initrd.availableKernelModules = ["tpm_tis"];
 
-  # Packages
-  environment.systemPackages = with pkgs; [
-    iio-sensor-proxy # Auto-brightness on Gnome
-    easyeffects # Audio profile for Framework
-  ];
+  # Sensors
+  hardware.sensor.iio.enable = true;
+  # TODO: Fix blacklisted hid-sensor-hub kernel module on 6.6.66 LTS
 
   # Services
   services = {
     ## Driver updates
     fwupd.enable = true;
-
-    ## Audio
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
 
     ## Fingerprint
     fprintd.enable = true;
