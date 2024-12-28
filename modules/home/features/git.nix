@@ -36,5 +36,12 @@ in {
         }
         // cfg.extraConfig;
     };
+
+    # Conditionally persist directories
+    myHome = lib.mkIf config.myHome.impermanence.enable {
+      impermanence.directories = [
+        "Git"
+      ];
+    };
   };
 }

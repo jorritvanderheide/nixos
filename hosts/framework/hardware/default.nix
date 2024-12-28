@@ -1,7 +1,7 @@
 # Hardware configuration for Framework
 {inputs, ...}: {
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module
+    inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module # TODO: Fix blacklisted hid-sensor-hub kernel module on 6.6.66 LTS
     ./hardware.nix
   ];
 
@@ -10,12 +10,14 @@
 
   # Sensors
   hardware.sensor.iio.enable = true;
-  # TODO: Fix blacklisted hid-sensor-hub kernel module on 6.6.66 LTS
 
   # Services
   services = {
     ## Driver updates
-    fwupd.enable = true;
+    fwupd = {
+      enable = true;
+      extraRemotes = ["lvfs-testing"]; # See https://github.com/NixOS/nixos-hardware/tree/master/framework
+    };
 
     ## Fingerprint
     fprintd.enable = true;
