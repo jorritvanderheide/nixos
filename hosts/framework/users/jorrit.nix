@@ -30,6 +30,7 @@
     # myHome configuration
     myHome = {
       ## Features
+      bambu-studio.enable = true;
       blackbox.enable = true;
       brave.enable = true;
       direnv.enable = true;
