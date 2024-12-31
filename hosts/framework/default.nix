@@ -12,6 +12,7 @@
       home.enable = true;
       impermanence.enable = true;
       secure-boot.enable = true;
+      solaar.enable = true;
 
       ### Disks
       disks = {
@@ -82,9 +83,6 @@
 
     # Time
     time.timeZone = "Europe/Amsterdam";
-
-    # Security
-    security.rtkit.enable = true; # For PipeWire
 
     # End of config
     system.stateVersion = "24.11"; # Do not change
