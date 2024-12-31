@@ -18,5 +18,10 @@
       enable = true;
       extraRemotes = ["lvfs-testing"]; # See https://github.com/NixOS/nixos-hardware/tree/master/framework
     };
+
+    ## Lid switch
+    logind = {
+      lidSwitchExternalPower = "ignore";
+    };
   };
 }
