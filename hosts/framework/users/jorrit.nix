@@ -22,9 +22,6 @@
 
       ## CLI
       figlet
-
-      # Themes
-      tela-circle-icon-theme
     ];
 
     # myHome configuration
@@ -37,6 +34,7 @@
       impermanence.enable = true;
       signal.enable = true;
       spotify.enable = true;
+      theming.enable = true;
       vscode.enable = true;
 
       ### Git

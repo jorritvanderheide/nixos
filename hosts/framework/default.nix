@@ -12,7 +12,6 @@
       home.enable = true;
       impermanence.enable = true;
       secure-boot.enable = true;
-      solaar.enable = true;
 
       ### Disks
       disks = {

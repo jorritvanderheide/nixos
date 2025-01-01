@@ -11,6 +11,12 @@
   # Sensors
   hardware.sensor.iio.enable = true;
 
+  # Logitech Bolt
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
+
   # Services
   services = {
     ## Driver updates
