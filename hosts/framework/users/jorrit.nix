@@ -36,6 +36,7 @@
       fish.enable = true;
       impermanence.enable = true;
       signal.enable = true;
+      spotify.enable = true;
       vscode.enable = true;
 
       ### Git
@@ -65,6 +66,13 @@
         ];
       };
     };
+
+    # Allow as unfree package
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "spotify"
+        "vscode"
+      ];
 
     # End of config
     home.stateVersion = "24.11"; # Do not change
