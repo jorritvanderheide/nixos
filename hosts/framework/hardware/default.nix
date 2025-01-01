@@ -8,13 +8,16 @@
   # Enable TPM
   boot.initrd.availableKernelModules = ["tpm_tis"];
 
-  # Sensors
-  hardware.sensor.iio.enable = true;
+  # Hardware
+  hardware = {
+    # Logitech Bolt
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
 
-  # Logitech Bolt
-  hardware.logitech.wireless = {
-    enable = true;
-    enableGraphical = true;
+    # Sensors
+    sensor.iio.enable = true;
   };
 
   # Services
