@@ -27,5 +27,19 @@
       enable = true;
       extraRemotes = ["lvfs-testing"]; # See https://github.com/NixOS/nixos-hardware/tree/master/framework
     };
+
+    ## Power
+    power-profiles-daemon.enable = false;
+    auto-cpufreq.enable = true;
+    auto-cpufreq.settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "default";
+        turbo = "never";
+      };
+    };
   };
 }
