@@ -9,7 +9,7 @@
 in {
   options.mySystem.gnome = {
     excludePackages = lib.mkOption {
-      # type = lib.types.listOf lib.types.pkgs; # TODO: fix type
+      type = lib.types.listOf lib.types.package;
       default = [];
       description = ''
         packages to exclude
@@ -31,6 +31,13 @@ in {
         displayManager.gdm.enable = true;
         desktopManager.gnome.enable = true;
       };
+    };
+
+    # Conditional persist
+    mySystem = lib.mkIf config.mySystem.impermanence.enable {
+      impermanence.directories = [
+        "/var/lib/AccountsService"
+      ];
     };
   };
 }
