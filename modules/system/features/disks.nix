@@ -193,6 +193,7 @@ in {
         unitConfig.DefaultDependencies = "no";
         serviceConfig.Type = "oneshot";
         script = ''
+          zpool import zroot
           zfs rollback -r zroot/root@empty
         '';
       };

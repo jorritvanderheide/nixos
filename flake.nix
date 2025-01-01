@@ -2,7 +2,7 @@
   inputs = {
     # Official sources
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:jorritvanderheide/nixos-hardware";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Community sources
     disko.url = "github:nix-community/disko"; # Disk management

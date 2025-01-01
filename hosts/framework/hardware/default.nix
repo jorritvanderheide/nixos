@@ -1,7 +1,7 @@
 # Hardware configuration for Framework
 {inputs, ...}: {
   imports = [
-    inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module # TODO: Fix blacklisted hid-sensor-hub kernel module on 6.6.66 LTS
+    inputs.nixos-hardware.nixosModules.framework-13th-gen-intel # Import community hardware module
     ./hardware.nix
   ];
 
