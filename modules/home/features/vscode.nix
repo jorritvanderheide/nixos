@@ -29,8 +29,15 @@ in {
       enableExtensionUpdateCheck = false;
       extensions = with pkgs.vscode-extensions;
         [
+          bradlc.vscode-tailwindcss
+          eamodio.gitlens
+          esbenp.prettier-vscode
+          # github.copilot
+          # github.copilot-chat
           jnoortheen.nix-ide
           mkhl.direnv
+          ms-azuretools.vscode-docker
+          mvllow.rose-pine
         ]
         ++ cfg.extensions;
 
