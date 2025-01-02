@@ -55,7 +55,7 @@ in {
           "window.menuBarVisibility" = "toggle";
           "window.titleBarStyle" = "custom";
           "workbench.startupEditor" = "none";
-          "workbench.colorTheme" = "Rosé Pine";
+          "workbench.colorTheme" = "Rosé Pine Moon";
 
           # Extensions
           "docker.composeCommand" = "docker compose";

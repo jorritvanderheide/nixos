@@ -7,14 +7,14 @@
   gtk.enable = true;
 
   gtk = {
-    # TODO: find cursor and shell theme
-    # cursorTheme = {
-    #   package = pkgs.oreo-cursors-plus;
-    #   name = "Oreo_spark_black_border_cursors";
-    # };
+    cursorTheme = {
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
+    };
+    # TODO: find shell theme
     # theme = {
-    #   package = pkgs.marble-shell-theme;
-    #   name = "Orchis-Purple";
+    #   package = pkgs.rose-pine-gtk-theme;
+    #   name = "Rosé Pine Moon";
     # };
     iconTheme = {
       package = pkgs.tela-circle-icon-theme;
