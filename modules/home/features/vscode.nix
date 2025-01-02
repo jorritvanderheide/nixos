@@ -55,7 +55,12 @@ in {
           "window.menuBarVisibility" = "toggle";
           "window.titleBarStyle" = "custom";
           "workbench.startupEditor" = "none";
-          "workbench.colorTheme" = "One Dark Pro";
+          "workbench.colorTheme" = "Rosé Pine";
+
+          # Extensions
+          "docker.composeCommand" = "docker compose";
+          "prettier.requireConfig" = true;
+          "tailwindCSS.rootFontSize" = 10;
 
           # Nix settings
           "nix.serverPath" = "nixd";
