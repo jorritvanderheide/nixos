@@ -164,7 +164,9 @@ in {
         use-album = false;
       };
       "org/gnome/shell/extensions/unite" = {
+        extend-left-box = false;
         hide-activities-button = "never";
+        notifications-position = "center";
         show-appmenu-button = false;
         show-desktop-name = false;
         show-window-buttons = "never";
