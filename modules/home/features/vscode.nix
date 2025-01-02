@@ -68,6 +68,7 @@ in {
           "nix.hiddenLanguageServerErrors" = [
             "textDocument/definition"
             "textDocument/documentHighlight"
+            "textDocument/formatting"
           ];
           "nixpkgs" = {
             "expr" = "import <nixpkgs> { }";
