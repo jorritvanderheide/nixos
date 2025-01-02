@@ -2,7 +2,7 @@
 {pkgs, ...}: {
   # Virtualization
   virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker.storageDriver = "zfs";
 
   # Docker
   environment.systemPackages = with pkgs; [

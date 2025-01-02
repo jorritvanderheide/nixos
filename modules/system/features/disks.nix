@@ -180,7 +180,7 @@ in {
     (lib.mkIf config.mySystem.impermanence.enable {
       boot.initrd.systemd.enable = true;
       boot.initrd.systemd.services.rollback = {
-        description = "Rollback BTRFS root subvolume to a pristine state";
+        description = "Rollback ZFS root subvolume to a pristine state";
         wantedBy = [
           "initrd.target"
         ];

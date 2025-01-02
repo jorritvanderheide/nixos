@@ -56,6 +56,7 @@
         "jorrit" = {
           userConfig = ./users/jorrit.nix;
           userSettings = {
+            extraGroups = ["docker"];
             initialPassword = "10220408";
           };
         };
