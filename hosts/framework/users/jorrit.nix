@@ -27,6 +27,7 @@
     # myHome configuration
     myHome = {
       ## Features
+      audacity.enable = true;
       blackbox.enable = true;
       brave.enable = true;
       direnv.enable = true;
