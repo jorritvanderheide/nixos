@@ -32,11 +32,13 @@
   in {
     # System configurations
     nixosConfigurations = {
+      ncase = myLib.mkSystem "x86_64-linux" ./hosts/ncase;
       framework = myLib.mkSystem "x86_64-linux" ./hosts/framework;
     };
 
     # Home configurations
     homeConfigurations = {
+      "jorrit@ncase" = myLib.mkHome "x86_64-linux" ./hosts/ncase/users/jorrit.nix;
       "jorrit@framework" = myLib.mkHome "x86_64-linux" ./hosts/framework/users/jorrit.nix;
     };
 
