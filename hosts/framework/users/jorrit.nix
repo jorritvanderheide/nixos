@@ -33,6 +33,7 @@
       direnv.enable = true;
       fish.enable = true;
       impermanence.enable = true;
+      obsidian.enable = true;
       signal.enable = true;
       spotify.enable = true;
       theming.enable = true;
