@@ -31,6 +31,7 @@
       blackbox.enable = true;
       brave.enable = true;
       direnv.enable = true;
+      discord.enable = true;
       fish.enable = true;
       impermanence.enable = true;
       obsidian.enable = true;

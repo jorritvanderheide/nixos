@@ -1,3 +1,4 @@
+# Home manager module that configures Obsidian
 {
   config,
   lib,
