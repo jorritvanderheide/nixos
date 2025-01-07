@@ -36,6 +36,7 @@
       obsidian.enable = true;
       signal.enable = true;
       spotify.enable = true;
+      steam.enable = true;
       theming.enable = true;
       vscode.enable = true;
 
@@ -72,6 +73,10 @@
       builtins.elem (lib.getName pkg) [
         "spotify"
         "vscode"
+        "steam"
+        "steam-original"
+        "steam-unwrapped"
+        "steam-run"
       ];
 
     # End of config
