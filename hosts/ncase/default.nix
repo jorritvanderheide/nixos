@@ -64,7 +64,7 @@
     };
 
     # Networking
-    networking.hostName = "framework";
+    networking.hostName = "ncase";
     networking.networkmanager.enable = true;
 
     # Nix
