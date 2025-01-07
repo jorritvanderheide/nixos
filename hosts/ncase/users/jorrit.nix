@@ -36,7 +36,6 @@
       obsidian.enable = true;
       signal.enable = true;
       spotify.enable = true;
-      steam.enable = true;
       theming.enable = true;
       vscode.enable = true;
 
@@ -71,6 +70,7 @@
     # Allow as unfree package
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
+        "obsidian"
         "spotify"
         "vscode"
         "steam"

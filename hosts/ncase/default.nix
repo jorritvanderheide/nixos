@@ -12,6 +12,7 @@
       home.enable = true;
       impermanence.enable = true;
       secure-boot.enable = true;
+      # steam.enable = true;
       virtualization.enable = true;
 
       ### Disks
