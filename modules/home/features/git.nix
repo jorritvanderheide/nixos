@@ -29,6 +29,9 @@ in {
       enable = true;
       userName = cfg.userName;
       userEmail = cfg.userEmail;
+      ignores = [
+        ".direnv"
+      ];
       extraConfig =
         {
           init.defaultBranch = "main";
