@@ -69,7 +69,7 @@ in {
           "nupdate" = "nix flake update --flake /etc/nixos";
           "nshell" = "nix-shell -p";
           "ndev" = "nix develop";
-          "nedit" = "code /etc/nixos & exit";
+          "nedit" = "code /etc/nixos";
 
           # Utility
           "c" = "clear";
