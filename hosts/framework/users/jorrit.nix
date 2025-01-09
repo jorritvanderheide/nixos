@@ -18,6 +18,7 @@
     impermanence.enable = true;
     obsidian.enable = true;
     signal.enable = true;
+    secrets.enable = true;
     spotify.enable = true;
     theming.enable = true;
     vscode.enable = true;

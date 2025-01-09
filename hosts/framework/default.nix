@@ -1,5 +1,5 @@
 # System configuration for Framework
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   imports = [
     ./hardware
   ];
@@ -11,6 +11,7 @@
       format.enable = true;
       home.enable = true;
       impermanence.enable = true;
+      secrets.enable = true;
       secure-boot.enable = true;
       virtualization.enable = true;
 
@@ -57,6 +58,7 @@
           userConfig = ./users/jorrit.nix;
           userSettings = {
             initialPassword = "10220408";
+            hashedPasswordFile = config.sops.secrets.login_jorrit.path;
           };
         };
       };

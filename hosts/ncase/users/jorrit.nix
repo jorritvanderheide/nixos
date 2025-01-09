@@ -4,7 +4,7 @@
   imports = [
     ../../../users/jorrit
   ];
-  
+
   # myHome configuration
   config.myHome = {
     ## Features
@@ -15,7 +15,9 @@
     fish.enable = true;
     impermanence.enable = true;
     obsidian.enable = true;
+    secrets.enable = true;
     spotify.enable = true;
+    steam.enable = true;
     theming.enable = true;
     vscode.enable = true;
   };

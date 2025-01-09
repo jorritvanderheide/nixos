@@ -20,6 +20,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ## Secret managment
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ## Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
