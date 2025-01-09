@@ -15,7 +15,7 @@
     fish.enable = true;
     impermanence.enable = true;
     obsidian.enable = true;
-    secrets.enable = true;
+    # secrets.enable = true; # TODO fix
     spotify.enable = true;
     steam.enable = true;
     theming.enable = true;

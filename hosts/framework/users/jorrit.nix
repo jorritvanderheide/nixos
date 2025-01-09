@@ -18,7 +18,7 @@
     impermanence.enable = true;
     obsidian.enable = true;
     signal.enable = true;
-    secrets.enable = true;
+    # secrets.enable = true; # TODO fix
     spotify.enable = true;
     theming.enable = true;
 
