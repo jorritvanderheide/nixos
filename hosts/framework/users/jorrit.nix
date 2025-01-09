@@ -21,6 +21,11 @@
     secrets.enable = true;
     spotify.enable = true;
     theming.enable = true;
-    vscode.enable = true;
+
+    ## VS Code
+    vscode = {
+      enable = true;
+      setEditor = true;
+    };
   };
 }

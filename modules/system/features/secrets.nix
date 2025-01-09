@@ -15,6 +15,13 @@
     sops
   ];
 
+ 
+   sops = {
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
+    defaultSopsFile = ../../../hosts/secrets.yaml;
+    secrets.jorrit_login.neededForUsers = true;
+  };
+
   # Conditional persist
   mySystem = lib.mkIf config.mySystem.impermanence.enable {
     impermanence.directories = [

@@ -6,13 +6,18 @@
   pkgs,
   ...
 }: let
-  cfg = config.myHomeManager.vscode;
+  cfg = config.myHome.vscode;
 in {
-  options.myHomeManager.vscode = {
+  options.myHome.vscode = {
     extensions = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [];
       description = "Extensions to intall";
+    };
+    setEditor = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "set as $EDITOR";
     };
     userSettings = lib.mkOption {
       type = lib.types.attrs;
@@ -91,6 +96,9 @@ in {
         }
         // cfg.userSettings;
     };
+
+    # Conditionally set as default editor
+    home.sessionVariables.EDITOR = lib.mkIf cfg.setEditor "code --wait";
 
     # Conditionally enable persist
     myHome = lib.mkIf config.myHome.impermanence.enable {

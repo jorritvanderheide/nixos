@@ -1,15 +1,17 @@
 # Nix-sops secrets configuration
+# TODO Add ncase
 keys:
-  # - &hosts
-  #   - &framework age1dd46w7resazwynqq3gwlkxsupuje8h8qmuf0ljdgap6dywqhfqfq6amj6v
-  #   - &ncase
+  - &hosts:
+    - &framework age1dd46w7resazwynqq3gwlkxsupuje8h8qmuf0ljdgap6dywqhfqfq6amj6v
+    # - &ncase
   - &users:
     - &jorrit age1cxsymwqxq4hzvajcxmuv8m7yuslqa0rhnvkxv3ujkqrua7rngy8shhcw0m
 creation_rules:
-  # - path_regex: hosts/framework/secrets.yaml$
-  #   key_groups:
-  #   - age:
-  #     - *framework
+  - path_regex: hosts/secrets.yaml$
+    key_groups:
+    - age:
+      - *framework
+      # - *ncase
   - path_regex: users/jorrit/secrets.yaml$
     key_groups:
     - age:
