@@ -1,5 +1,9 @@
 # System configuration for Framework
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware
   ];
@@ -58,7 +62,7 @@
         "jorrit" = {
           userConfig = ./users/jorrit.nix;
           userSettings = {
-            initialPassword = "10220408";
+            hashedPasswordFile = config.sops.secrets.jorrit_login.path;
           };
         };
       };
