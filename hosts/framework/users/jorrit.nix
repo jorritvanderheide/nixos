@@ -11,6 +11,7 @@
     audacity.enable = true;
     bambu-studio.enable = true;
     blackbox.enable = true;
+    blender.enable = true;
     brave.enable = true;
     direnv.enable = true;
     discord.enable = true;
