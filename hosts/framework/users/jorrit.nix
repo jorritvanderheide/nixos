@@ -1,82 +1,25 @@
-# User configuration for Jorrit
-{
-  lib,
-  outputs,
-  pkgs,
-  ...
-}: {
+# User configuration for Jorrit @ Framework
+# TODO move to user folder
+{...}: {
   imports = [
-    outputs.homeManagerModules.default
+    ../../../users/jorrit
   ];
 
-  config = {
-    # Home
-    home.username = "jorrit";
-    home.homeDirectory = lib.mkDefault "/home/jorrit";
-
-    # Packages
-    home.packages = with pkgs; [
-      ## Fonts
-      cascadia-code
-      inter
-
-      ## CLI
-      figlet
-    ];
-
-    # myHome configuration
-    myHome = {
-      ## Features
-      audacity.enable = true;
-      blackbox.enable = true;
-      brave.enable = true;
-      direnv.enable = true;
-      discord.enable = true;
-      fish.enable = true;
-      impermanence.enable = true;
-      obsidian.enable = true;
-      signal.enable = true;
-      spotify.enable = true;
-      theming.enable = true;
-      vscode.enable = true;
-
-      ### Git
-      git = {
-        enable = true;
-        userName = "jorritvanderheide";
-        userEmail = "35707261+jorritvanderheide@users.noreply.github.com";
-      };
-
-      ### Gnome
-      gnome = {
-        enable = true;
-        gnomeExtensions = with pkgs; [
-          gnomeExtensions.alphabetical-app-grid
-          gnomeExtensions.appindicator
-          gnomeExtensions.blur-my-shell
-          gnomeExtensions.burn-my-windows
-          gnomeExtensions.caffeine
-          gnomeExtensions.clipboard-indicator
-          gnomeExtensions.color-picker
-          gnomeExtensions.dash-to-dock
-          gnomeExtensions.impatience
-          gnomeExtensions.mpris-label
-          gnomeExtensions.night-theme-switcher
-          gnomeExtensions.steal-my-focus-window
-          gnomeExtensions.unite
-        ];
-      };
-    };
-
-    # Allow as unfree package
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "obsidian"
-        "spotify"
-        "vscode"
-      ];
-
-    # End of config
-    home.stateVersion = "24.11"; # Do not change
+  # myHome configuration
+  config.myHome = {
+    ## Features
+    audacity.enable = true;
+    bambu-studio.enable = true;
+    blackbox.enable = true;
+    brave.enable = true;
+    direnv.enable = true;
+    discord.enable = true;
+    fish.enable = true;
+    impermanence.enable = true;
+    obsidian.enable = true;
+    signal.enable = true;
+    spotify.enable = true;
+    theming.enable = true;
+    vscode.enable = true;
   };
 }
