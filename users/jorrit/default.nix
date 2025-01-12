@@ -57,13 +57,17 @@
     # Allow as unfree package
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
+        "discord"
+        "nvidia-persistenced"
+        "nvidia-settings"
+        "nvidia-x11"
         "obsidian"
         "spotify"
-        "vscode"
         "steam"
         "steam-original"
         "steam-unwrapped"
         "steam-run"
+        "vscode"
       ];
 
     # End of config

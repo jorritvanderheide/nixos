@@ -3,7 +3,7 @@
 keys:
   - &hosts:
     - &framework age1dd46w7resazwynqq3gwlkxsupuje8h8qmuf0ljdgap6dywqhfqfq6amj6v
-    # - &ncase
+    - &ncase age19er7290jhdn3s2hgnr3gprxzaawqxd66u8tj4tdv3njfsnfqw3ksm75wsm
   - &users:
     - &jorrit age1cxsymwqxq4hzvajcxmuv8m7yuslqa0rhnvkxv3ujkqrua7rngy8shhcw0m
 creation_rules:
@@ -11,7 +11,7 @@ creation_rules:
     key_groups:
     - age:
       - *framework
-      # - *ncase
+      - *ncase
   - path_regex: users/jorrit/secrets.yaml$
     key_groups:
     - age:

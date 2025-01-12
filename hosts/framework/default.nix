@@ -15,8 +15,8 @@
       format.enable = true;
       home.enable = true;
       impermanence.enable = true;
-      secrets.enable = true;
-      secure-boot.enable = true;
+      # secrets.enable = true;
+      # secure-boot.enable = true;
       virtualization.enable = true;
 
       ### Disks
@@ -61,6 +61,7 @@
         "jorrit" = {
           userConfig = ./users/jorrit.nix;
           userSettings = {
+            initialPassword = "10220408";
             hashedPasswordFile = config.sops.secrets.jorrit_login.path;
           };
         };

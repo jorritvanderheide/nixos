@@ -8,6 +8,7 @@
   # myHome configuration
   config.myHome = {
     ## Features
+    bambu-studio.enable = true;
     blackbox.enable = true;
     brave.enable = true;
     direnv.enable = true;
@@ -15,10 +16,15 @@
     fish.enable = true;
     impermanence.enable = true;
     obsidian.enable = true;
-    # secrets.enable = true; # TODO fix
+    signal.enable = true;
     spotify.enable = true;
     steam.enable = true;
     theming.enable = true;
-    vscode.enable = true;
+
+    ## VS Code
+    vscode = {
+      enable = true;
+      setEditor = true;
+    };
   };
 }

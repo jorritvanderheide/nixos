@@ -13,7 +13,7 @@ in {
 
   options.myHome.impermanence = {
     directories = lib.mkOption {
-      type = lib.types.listOf lib.types.str;
+      # type = lib.types.listOf lib.types.str; # TODO dix for steam
       default = [];
       description = "Directories to persist";
     };
