@@ -12,13 +12,21 @@ This repository contains a modular NixOS and Home Manager configuration. Some ke
 
 Follow these steps to install and configure the system:
 
-1. **Disable secure boot**: In the [mySystem configuration](<hosts/framework/default.nix>), disable secure boot for the initial installation. You can re-enable it after the first boot.
+1. **Make a new host**: Create a new host for your system by copying one of the pre-existing hosts
 
-2. **Configure disk**: Define the disk for installation in the disk module section of the [mySystem configuration](<hosts/framework/default.nix>).
+2. **Clone the repo**: Clone the repository using https:
 
-3. **Create encryption key**: Generate a disk encryption password and store it in `/tmp/secret.key`.
+   ```shell
+   git clone https://github.com/jorritvanderheide/nixos.git
+   ```
 
-4. **Install OS**: With the previous steps completed, run the following command to partition the disk and install the operating system:
+3. **Disable secure boot**: In the [mySystem configuration](<hosts/framework/default.nix>), disable secure boot for the initial installation. You can re-enable it after the first boot.
+
+4. **Configure the disk**: Define the disk for installation in the disk module section of the [mySystem configuration](<hosts/framework/default.nix>).
+
+5. **Create encryption key**: Generate a disk encryption password and store it in `/tmp/secret.key`.
+
+6. **Install OS**: With the previous steps completed, run the following command to partition the disk and install the operating system:
 
    ```shell
    sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake <path-to-flake>#framework --disk main </dev/disk-device>
@@ -27,6 +35,14 @@ Follow these steps to install and configure the system:
 ## Enabling Secure Boot
 
 After the first boot, if you wish to enable Secure Boot, follow the steps in the [Lanzaboote quick-start guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md).
+
+> [!TLDR]- TLDR
+> 
+> 1. Create the required keys:
+>
+>    ```shell
+>    nix-shell -p sbctl run 'sudo sbctl create-keys'
+>    ```
 
 ## TPM-Based LUKS Decryption
 
