@@ -16,7 +16,7 @@
       home.enable = true;
       impermanence.enable = true;
       # secrets.enable = true;
-      # secure-boot.enable = true;
+      secure-boot.enable = true;
       virtualization.enable = true;
 
       ### Disks
@@ -49,7 +49,6 @@
           gnome-text-editor
           simple-scan
           totem
-          xterm
           yelp
         ];
       };
