@@ -64,7 +64,6 @@ in {
           # Nix
           "nswitch" = "sudo nixos-rebuild switch --flake /etc/nixos#$(hostname)";
           "nboot" = "sudo nixos-rebuild boot --flake /etc/nixos#$(hostname)";
-          "nbuild" = "sudo nixos-rebuild build --flake /etc/nixos#$(hostname)";
           "nrollback" = "sudo nixos-rebuild switch --rollback";
           "nclean" = "nix-collect-garbage -d";
           "nupdate" = "nix flake update --flake /etc/nixos";
