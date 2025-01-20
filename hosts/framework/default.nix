@@ -62,7 +62,7 @@
           userConfig = ./users/jorrit.nix;
           userSettings = {
             initialPassword = "10220408";
-            hashedPasswordFile = config.sops.secrets.jorrit_login.path;
+            # hashedPasswordFile = config.sops.secrets.jorrit_login.path;
           };
         };
       };
