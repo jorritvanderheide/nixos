@@ -25,6 +25,7 @@ in {
     myHome = lib.mkIf config.myHome.impermanence.enable {
       impermanence = {
         directories = [
+          ".config/autostart"
           ".config/burn-my-windows"
         ];
       };
