@@ -16,7 +16,7 @@
       home.enable = true;
       impermanence.enable = true;
       # secrets.enable = true;
-      # secure-boot.enable = true;
+      secure-boot.enable = true;
       virtualization.enable = true;
 
       ### Disks
