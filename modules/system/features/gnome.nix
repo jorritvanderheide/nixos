@@ -21,13 +21,15 @@ in {
     # Packages to exclude from install
     environment.gnome.excludePackages = cfg.excludePackages;
 
+    environment.systemPackages = with pkgs; [
+      dconf-editor
+      gnome-tweaks
+    ];
+
     # Enable Gnome
     services = {
       xserver = {
         enable = true;
-        excludePackages = with pkgs; [
-          xterm
-        ];
         displayManager.gdm.enable = true;
         desktopManager.gnome.enable = true;
       };
