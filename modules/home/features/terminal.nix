@@ -28,9 +28,39 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    settings = {
+      add_newline = true;
+      format = "$hostname$username$directory$git_branch$git_commit$git_status$nix_shell$character";
+      line_break = true;
+
+      character = {
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[✖](bold red)";
+      };
+
+      directory = {
+        read_only = "";
+        repo_root_style = "(bold blue";
+      };
+
+      git_branch = {
+        style = "bold green";
+        symbol = "🌱 ";
+      };
+
+      nix_shell = {
+        format = "via [$symbol dev-shell]($style) ";
+        style = "bold cyan";
+        symbol = "❄️ ";
+      };
+    };
   };
 
-  home.packages = with pkgs; [
-    blackbox-terminal
-  ];
+  home = {
+    packages = with pkgs; [
+      blackbox-terminal
+    ];
+
+    sessionVariables.STARSHIP_LOG = "error";
+  };
 }
