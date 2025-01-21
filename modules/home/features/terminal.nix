@@ -7,6 +7,7 @@
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
       easy-copy-paste = true;
+      font = "MesloLGS NF 12";
       remember-window-size = true;
       show-headerbar = false;
       style-preference = lib.hm.gvariant.mkUint32 2;
@@ -22,6 +23,11 @@
       theme-dark = "One Dark";
       working-directory-mode = 1;
     };
+  };
+
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   home.packages = with pkgs; [

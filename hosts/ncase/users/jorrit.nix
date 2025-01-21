@@ -9,7 +9,6 @@
   config.myHome = {
     ## Features
     bambu-studio.enable = true;
-    blackbox.enable = true;
     brave.enable = true;
     direnv.enable = true;
     discord.enable = true;
@@ -19,6 +18,7 @@
     signal.enable = true;
     spotify.enable = true;
     steam.enable = true;
+    terminal.enable = true;
     theming.enable = true;
 
     ## VS Code
