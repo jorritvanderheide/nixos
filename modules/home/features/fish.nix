@@ -40,12 +40,12 @@ in {
       plugins =
         [
           {
+            inherit (pkgs.fishPlugins.pure) src;
             name = "pure";
-            src = pkgs.fishPlugins.pure;
           }
           {
+            inherit (pkgs.fishPlugins.sponge) src;
             name = "sponge";
-            src = pkgs.fishPlugins.sponge;
           }
         ]
         ++ cfg.plugins;
