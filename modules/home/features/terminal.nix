@@ -16,9 +16,9 @@
       terminal-padding = with lib.hm.gvariant;
         mkTuple
         [
+          (mkUint32 16)
           (mkUint32 32)
-          (mkUint32 32)
-          (mkUint32 32)
+          (mkUint32 16)
           (mkUint32 32)
         ];
       theme-dark = "One Dark";
