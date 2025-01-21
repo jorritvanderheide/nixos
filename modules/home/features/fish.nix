@@ -40,8 +40,8 @@ in {
       plugins =
         [
           {
-            name = "hydro";
-            src = pkgs.fishPlugins.hydro;
+            name = "pure";
+            src = pkgs.fishPlugins.pure;
           }
         ]
         ++ cfg.plugins;
