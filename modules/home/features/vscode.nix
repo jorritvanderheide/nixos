@@ -51,6 +51,7 @@ in {
       userSettings =
         {
           # General settings
+          "editor.fontFamily" = "'MesloLGS NF', 'Cascadia Code', 'monospace', monospace";
           "editor.formatOnSave" = true;
           "editor.minimap.enabled" = false;
           "git.autofetch" = true;
