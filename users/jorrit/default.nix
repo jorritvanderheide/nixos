@@ -19,6 +19,7 @@
       ## Fonts
       cascadia-code
       inter
+      meslo-lgs-nf
 
       ## CLI
       figlet
