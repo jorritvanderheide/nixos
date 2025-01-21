@@ -40,7 +40,7 @@
 
       directory = {
         read_only = "";
-        repo_root_style = "(bold blue";
+        repo_root_style = "bold blue";
       };
 
       git_branch = {
