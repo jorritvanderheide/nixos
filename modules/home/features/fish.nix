@@ -43,6 +43,10 @@ in {
             name = "pure";
             src = pkgs.fishPlugins.pure;
           }
+          {
+            name = "sponge";
+            src = pkgs.fishPlugins.sponge;
+          }
         ]
         ++ cfg.plugins;
       shellAliases =
