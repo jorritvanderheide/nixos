@@ -8,19 +8,22 @@
     "com/raggesilver/BlackBox" = {
       easy-copy-paste = true;
       font = "MesloLGS NF 12";
-      remember-window-size = true;
+      notify-process-completion = false;
+      remember-window-size = false;
       show-headerbar = false;
       style-preference = lib.hm.gvariant.mkUint32 2;
       terminal-bell = false;
       terminal-padding = with lib.hm.gvariant;
         mkTuple
         [
-          (mkUint32 24)
-          (mkUint32 24)
-          (mkUint32 24)
-          (mkUint32 24)
+          (mkUint32 32)
+          (mkUint32 32)
+          (mkUint32 32)
+          (mkUint32 32)
         ];
       theme-dark = "One Dark";
+      window-height = lib.hm.gvariant.mkUint32 1080;
+      window-width = lib.hm.gvariant.mkUint32 360;
       working-directory-mode = 1;
     };
   };
