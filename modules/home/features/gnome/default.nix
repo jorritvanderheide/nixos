@@ -74,6 +74,7 @@ in {
       };
 
       "org/gnome/mutter" = {
+        center-new-windows = true;
         dynamic-workspaces = true;
         edge-tiling = true;
         experimental-features = ["scale-monitor-framebuffer"];
