@@ -22,13 +22,11 @@ in {
 
   config = {
     # Persist directories
-    myHome = lib.mkIf config.myHome.impermanence.enable {
-      impermanence = {
-        directories = [
-          ".config/autostart"
-          ".config/burn-my-windows"
-        ];
-      };
+    myHome.impermanence = lib.mkIf config.myHome.impermanence.enable {
+      directories = [
+        ".config/autostart"
+        ".config/burn-my-windows"
+      ];
     };
 
     # Dconf settings
@@ -38,8 +36,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
-        picture-uri-dark = "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
+        picture-uri = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
+        picture-uri-dark = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {

@@ -49,26 +49,52 @@ in {
       # Settings
       enableUpdateCheck = false;
       userSettings =
+        lib.mkForce
         {
-          # General settings
-          "editor.fontFamily" = "'MesloLGS NF', 'Cascadia Code', 'monospace', monospace";
+          ## Editor settings
+          "editor.fontFamily" = "Cascadia Code";
+          "editor.fontLigatures" = false;
           "editor.formatOnSave" = true;
           "editor.minimap.enabled" = false;
+          "editor.tokenColorCustomizations" = {
+            "textMateRules" = [
+              {
+                "scope" = [
+                  "comment"
+                  "entity.name.type.class"
+                  "entity.other.attribute-name"
+                  "keyword"
+                  "constant"
+                  "storage.modifier"
+                  "storage.type.class.js"
+                ];
+                "settings" = {
+                  "fontStyle" = "italic";
+                };
+              }
+            ];
+          };
+
+          ## Extensions settings
+          "extensions.ignoreRecommendations" = true;
+          "docker.composeCommand" = "docker compose";
+          "prettier.requireConfig" = true;
+          "tailwindCSS.rootFontSize" = 10;
+
+          ## Git settings
           "git.autofetch" = true;
           "git.confirmSync" = false;
           "git.openRepositoryInParentFolders" = "always";
           "git.suggestSmartCommit" = false;
+
+          ## Other settings
+          "terminal.integrated.fontLigatures" = true;
           "window.menuBarVisibility" = "toggle";
           "window.titleBarStyle" = "custom";
           "workbench.startupEditor" = "none";
           "workbench.colorTheme" = "Rosé Pine Moon";
 
-          # Extensions
-          "docker.composeCommand" = "docker compose";
-          "prettier.requireConfig" = true;
-          "tailwindCSS.rootFontSize" = 10;
-
-          # Nix settings
+          ## Nix settings
           "nix.serverPath" = "nixd";
           "nix.enableLanguageServer" = true;
           "nix.hiddenLanguageServerErrors" = [

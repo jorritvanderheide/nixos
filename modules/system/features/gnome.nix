@@ -35,9 +35,15 @@ in {
       };
     };
 
+    # Open any terminal from Nautilus
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "blackbox";
+    };
+
     # Conditional persist
-    mySystem = lib.mkIf config.mySystem.impermanence.enable {
-      impermanence.directories = [
+    mySystem.impermanence = lib.mkIf config.mySystem.impermanence.enable {
+      directories = [
         "/var/lib/AccountsService"
       ];
     };
