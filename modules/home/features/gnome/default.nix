@@ -46,6 +46,7 @@ in {
 
       "org/gnome/desktop/interface" = {
         clock-show-date = false;
+        cursor-size = 24;
         enable-hot-corners = false;
         font-hinting = "none";
         show-battery-percentage = true;
