@@ -46,7 +46,7 @@ in {
 
       "org/gnome/desktop/interface" = {
         clock-show-date = false;
-        cursor-size = 24;
+        cursor-size = lib.mkForce 24;
         enable-hot-corners = false;
         font-hinting = "none";
         show-battery-percentage = true;
