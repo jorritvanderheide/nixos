@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       logo = {
-        source = builtins.path {path = ../../../assets/images/wallpaper-square.six;};
+        source = builtins.path {path = ../../../assets/images/wallpaper-dark.jpg;};
         height = 14;
         padding = {
           top = 2;

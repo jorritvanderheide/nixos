@@ -32,11 +32,6 @@
     autoEnable = true;
     image = builtins.path {path = ../../../assets/images/wallpaper-dark.jpg;};
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
-    opacity = {
-      applications = 0.95;
-      popups = 0.95;
-      terminal = 0.95;
-    };
     cursor = {
       package = pkgs.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
