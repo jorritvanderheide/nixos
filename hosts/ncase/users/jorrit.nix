@@ -15,6 +15,7 @@
     fish.enable = true;
     impermanence.enable = true;
     obsidian.enable = true;
+    pinta.enable = true;
     signal.enable = true;
     spotify.enable = true;
     steam.enable = true;

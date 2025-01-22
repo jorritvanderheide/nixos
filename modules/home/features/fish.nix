@@ -54,6 +54,7 @@ in {
           # General
           ".." = "cd ..";
           "..." = "cd ../..";
+          "neofetch" = "fastfetch";
 
           # Git
           "g" = "git";
