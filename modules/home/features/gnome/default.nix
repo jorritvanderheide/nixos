@@ -68,6 +68,10 @@ in {
         show-in-lock-screen = false;
       };
 
+      "org/gnome/desktop/privacy" = {
+        remember-recent-files = false;
+      };
+
       "org/gnome/desktop/wm/preferences" = {
         audible-bell = false;
       };
