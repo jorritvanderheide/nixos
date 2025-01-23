@@ -29,6 +29,30 @@ in {
       ];
     };
 
+    # Gnome extensions
+    home.packages = with pkgs;
+      [
+        gnome-tweaks
+      ]
+      ++ cfg.gnomeExtensions;
+
+    # Triple buffering patch for Mutter
+    nixpkgs.overlays = [
+      (final: prev: {
+        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+          mutter = gnomePrev.mutter.overrideAttrs (old: {
+            src = pkgs.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+              owner = "vanvugt";
+              repo = "mutter";
+              rev = "triple-buffering-v4-46";
+            };
+          });
+        });
+      })
+    ];
+
     # Dconf settings
     dconf.settings = {
       "ca/desrt/dconf-editor" = {
@@ -128,15 +152,19 @@ in {
       "org/gnome/shell/app-switcher" = {
         current-workspace-only = true;
       };
+
       "org/gnome/shell/extensions/blur-my-shell/panel" = {
         override-background-dynamically = true;
       };
+
       "org/gnome/shell/extensions/burn-my-windows" = {
         active-profile = "/home/jorrit/.config/burn-my-windows/profiles/1734873759007423.conf";
       };
+
       "org/gnome/shell/extensions/clipboard-indicator" = {
         display-mode = 3;
       };
+
       "org/gnome/shell/extensions/color-picker" = {
         color-picker-shortcut = ["<Super><Shift>c"];
         default-format = lib.hm.gvariant.mkUint32 0;
@@ -145,6 +173,7 @@ in {
         enable-sound = false;
         enable-systray = false;
       };
+
       "org/gnome/shell/extensions/dash-to-dock" = {
         apply-custom-theme = true;
         disable-overview-on-startup = true;
@@ -155,6 +184,7 @@ in {
         show-show-apps-button = false;
         show-trash = false;
       };
+
       "org/gnome/shell/extensions/mpris-label" = {
         button-placeholder = "";
         divider-string = " - ";
@@ -168,6 +198,7 @@ in {
         thumb-backward-action = "none";
         use-album = false;
       };
+
       "org/gnome/shell/extensions/unite" = {
         extend-left-box = false;
         hide-activities-button = "never";
@@ -177,28 +208,10 @@ in {
         show-window-buttons = "never";
         use-activities-text = false;
       };
+
       "org/gtk/gtk4/settings/file-chooser" = {
         show-directories-first = false;
       };
     };
-
-    # Gnome extensions
-    home.packages = cfg.gnomeExtensions;
-    # Triple buffering patch for Mutter
-    nixpkgs.overlays = [
-      (final: prev: {
-        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-          mutter = gnomePrev.mutter.overrideAttrs (old: {
-            src = pkgs.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-              owner = "vanvugt";
-              repo = "mutter";
-              rev = "triple-buffering-v4-46";
-            };
-          });
-        });
-      })
-    ];
   };
 }

@@ -1,12 +1,12 @@
 # System module that configures Steam
 {...}: {
   programs = {
+    gamemode.enable = true;
+
     steam = {
       enable = true;
       gamescopeSession.enable = true;
     };
-
-    gamemode.enable = true;
   };
 
   # Support for Steam controller

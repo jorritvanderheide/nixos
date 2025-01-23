@@ -7,8 +7,8 @@
 }: let
   cfg = config.mySystem;
 
-  # Enable all modules in ./features
-  features =
+  # Recursively enable all system modules
+  nixos-modules =
     myLib.extendModules
     (name: {
       extraOptions = {
@@ -16,7 +16,7 @@
       };
       configExtension = config: (lib.mkIf cfg.${name}.enable config);
     })
-    (myLib.filesIn ./features);
+    (myLib.filesIn ./.);
 in {
-  imports = features;
+  imports = nixos-modules;
 }

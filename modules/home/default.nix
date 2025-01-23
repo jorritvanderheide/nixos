@@ -7,8 +7,8 @@
 }: let
   cfg = config.myHome;
 
-  # Enable all modules in ./features
-  features =
+  # Recursively enable all home-manager modules
+  home-modules =
     myLib.extendModules
     (name: {
       extraOptions = {
@@ -16,7 +16,7 @@
       };
       configExtension = config: (lib.mkIf cfg.${name}.enable config);
     })
-    (myLib.filesIn ./features);
+    (myLib.filesIn ./.);
 in {
-  imports = features;
+  imports = home-modules;
 }

@@ -1,4 +1,4 @@
-# Home manager module that configures GTK theming and Stylix
+# Home manager module that configures Stylix
 {
   inputs,
   lib,
@@ -8,24 +8,6 @@
   imports = [
     inputs.stylix.homeManagerModules.stylix
   ];
-
-  home.packages = with pkgs; [
-    gnome-tweaks
-  ];
-
-  gtk.enable = true;
-
-  gtk = {
-    # TODO: find shell theme
-    # theme = {
-    #   package = pkgs.rose-pine-gtk-theme;
-    #   name = "Rosé Pine Moon";
-    # };
-    iconTheme = {
-      package = pkgs.tela-circle-icon-theme;
-      name = "Tela-circle";
-    };
-  };
 
   stylix = lib.mkDefault {
     enable = true;

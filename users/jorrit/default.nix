@@ -17,7 +17,6 @@
     # Packages
     home.packages = with pkgs; [
       ## Fonts
-      cascadia-code
       inter
       meslo-lgs-nf
 
@@ -27,15 +26,15 @@
 
     # myHome configuration
     myHome = {
-      ### Git
-      git = {
+      ## Git
+      core.git = {
         enable = true;
         userName = "jorritvanderheide";
         userEmail = "35707261+jorritvanderheide@users.noreply.github.com";
       };
 
-      ### Gnome
-      gnome = {
+      ## Gnome
+      desktop.gnome = {
         enable = true;
         gnomeExtensions = with pkgs; [
           gnomeExtensions.alphabetical-app-grid
@@ -58,7 +57,6 @@
     # Allow as unfree package
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "discord"
         "nvidia-persistenced"
         "nvidia-settings"
         "nvidia-x11"

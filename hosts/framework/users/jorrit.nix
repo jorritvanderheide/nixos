@@ -7,26 +7,46 @@
 
   # myHome configuration
   config.myHome = {
-    ## Features
-    bambu-studio.enable = true;
-    brave.enable = true;
-    direnv.enable = true;
-    discord.enable = true;
-    fetch.enable = true;
-    fish.enable = true;
-    impermanence.enable = true;
-    obsidian.enable = true;
-    pinta.enable = true;
-    signal.enable = true;
-    spotify.enable = true;
-    terminal.enable = true;
-    theming.enable = true;
-    vlc.enable = true;
+    ## Apps
+    apps = {
+      bambu-studio.enable = true;
+      brave.enable = true;
+      discord.enable = true;
+      obsidian.enable = true;
+      pinta.enable = true;
+      signal.enable = true;
+      spotify.enable = true;
 
-    ## VS Code
-    vscode = {
-      enable = true;
-      setEditor = true;
+      ### VSCode
+      vscode = {
+        enable = true;
+        setEditor = true;
+      };
+    };
+
+    ## Core
+    core = {
+      direnv.enable = true;
+      impermanence.enable = true;
+    };
+
+    ## Terminal
+    terminal = {
+      blackbox.enable = true;
+      fish.enable = true;
+      starfish.enable = true;
+    };
+
+    ## Theming
+    theming = {
+      gtk.enable = true;
+      stylix.enable = true;
+    };
+
+    ## Utilities
+    utilities = {
+      fastfetch.enable = true;
+      vlc.enable = true;
     };
   };
 }

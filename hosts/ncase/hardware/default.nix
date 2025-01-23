@@ -1,4 +1,4 @@
-# Hardware configuration for Framework
+# Hardware configuration for Ncase
 {config, ...}: {
   imports = [
     ./hardware.nix
@@ -15,7 +15,7 @@
       enable32Bit = true;
     };
 
-    # ## Nvidia drivers
+    ## Nvidia drivers
     nvidia = {
       modesetting.enable = true;
       open = false;

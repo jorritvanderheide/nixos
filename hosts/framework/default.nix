@@ -1,9 +1,5 @@
 # System configuration for Framework
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware
   ];
@@ -11,59 +7,73 @@
   config = {
     # mySystem configuration
     mySystem = {
-      ## Features
-      format.enable = true;
-      home.enable = true;
-      impermanence.enable = true;
-      # secrets.enable = true;
-      secure-boot.enable = true;
-      virtualization.enable = true;
+      ## Core
+      core = {
+        home.enable = true;
+        impermanence.enable = true;
+        virtualization.enable = true;
 
-      ### Disks
-      disks = {
-        enable = true;
-        zfs = {
-          hostId = "6812df18";
-          encrypt = true;
-          disk = "nvme0n1";
-        };
-      };
-
-      ### Gnome
-      gnome = {
-        enable = true;
-        excludePackages = with pkgs; [
-          baobab
-          epiphany
-          geary
-          gnome-calendar
-          gnome-characters
-          gnome-clocks
-          gnome-connections
-          gnome-console
-          gnome-contacts
-          gnome-maps
-          gnome-music
-          gnome-tour
-          gnome-weather
-          gnome-text-editor
-          simple-scan
-          totem
-          yelp
-        ];
-      };
-
-      # Users
-      # TODO: cleanup module
-      users.enable = true;
-      home-users = {
-        "jorrit" = {
-          userConfig = ./users/jorrit.nix;
-          userSettings = {
-            initialPassword = "10220408";
-            # hashedPasswordFile = config.sops.secrets.jorrit_login.path;
+        ### Disks
+        disks = {
+          enable = true;
+          zfs = {
+            hostId = "6812df18";
+            encrypt = true;
+            disk = "nvme0n1";
           };
         };
+
+        ### Users
+        # TODO: cleanup module
+        users = {
+          enable = true;
+          home-users = {
+            "jorrit" = {
+              userConfig = ./users/jorrit.nix;
+              userSettings = {
+                initialPassword = "10220408";
+                # hashedPasswordFile = config.sops.secrets.jorrit_login.path;
+              };
+            };
+          };
+        };
+      };
+
+      ## Desktops
+      desktops = {
+        gnome = {
+          enable = true;
+          excludePackages = with pkgs; [
+            baobab
+            epiphany
+            geary
+            gnome-calendar
+            gnome-characters
+            gnome-clocks
+            gnome-connections
+            gnome-console
+            gnome-contacts
+            gnome-maps
+            gnome-music
+            gnome-tour
+            gnome-weather
+            gnome-text-editor
+            simple-scan
+            totem
+            yelp
+          ];
+        };
+      };
+
+      ## Nix
+      nix = {
+        format.enable = true;
+      };
+
+      ## Security
+      security = {
+        secrets.enable = true;
+        secure-boot.enable = true;
       };
     };
 
