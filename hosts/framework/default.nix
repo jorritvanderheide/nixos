@@ -71,13 +71,28 @@
     networking.hostName = "framework";
     networking.networkmanager.enable = true;
 
+    # Auto-upgrade
+    system.autoUpgrade = {
+      enable = true;
+      dates = "weekly";
+    };
+
     # Nix
     nix = {
+      ## Garbage collect
+      gc = {
+        automatic = true;
+        dates = "daily";
+        options = "--delete-older-than 14d";
+      };
+
+      ## Settings
       settings = {
         auto-optimise-store = true;
         experimental-features = ["flakes" "nix-command"];
         warn-dirty = false;
       };
+
       extraOptions = ''
         trusted-users = root jorrit
       ''; # TODO: make modular
