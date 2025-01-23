@@ -52,7 +52,7 @@ in {
         lib.mkForce
         {
           ## Editor settings
-          "editor.fontFamily" = "Cascadia Code";
+          "editor.fontFamily" = "'Cascadia Code', Consolas, 'Courier New', monospace";
           "editor.fontLigatures" = false;
           "editor.formatOnSave" = true;
           "editor.minimap.enabled" = false;

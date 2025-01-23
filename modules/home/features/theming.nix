@@ -37,13 +37,17 @@
       name = "BreezeX-RosePine-Linux";
     };
     fonts = {
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
       monospace = {
         package = pkgs.cascadia-code;
         name = "Cascadia Code";
       };
       sansSerif = {
-        package = pkgs.cantarell-fonts;
-        name = "Cantarel";
+        package = pkgs.open-sans;
+        name = "Open Sans";
       };
       serif = {
         package = pkgs.dejavu_fonts;

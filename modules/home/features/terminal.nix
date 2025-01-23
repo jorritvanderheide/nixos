@@ -56,7 +56,7 @@
       nix_shell = {
         format = "via [$symbol dev-shell]($style) ";
         style = "bold cyan";
-        symbol = "❄️ ";
+        symbol = "🐚";
       };
     };
   };
