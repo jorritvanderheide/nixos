@@ -1,5 +1,9 @@
 # Hardware configuration for Framework
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware.nix
   ];
@@ -37,4 +41,9 @@
     ## Nvidia drivers
     xserver.videoDrivers = ["nvidia"];
   };
+
+  # Sensors
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+  ];
 }
