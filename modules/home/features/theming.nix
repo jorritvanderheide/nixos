@@ -13,20 +13,6 @@
     gnome-tweaks
   ];
 
-  gtk.enable = true;
-
-  gtk = {
-    # TODO: find shell theme
-    # theme = {
-    #   package = pkgs.rose-pine-gtk-theme;
-    #   name = "Rosé Pine Moon";
-    # };
-    iconTheme = {
-      package = pkgs.tela-circle-icon-theme;
-      name = "Tela-circle";
-    };
-  };
-
   stylix = lib.mkDefault {
     enable = true;
     autoEnable = true;
@@ -59,6 +45,12 @@
         popups = 10;
         terminal = 11;
       };
+    };
+    iconTheme = {
+      enable = true;
+      package = pkgs.tela-circle-icon-theme;
+      light = "Tela-circle-light";
+      dark = "Tela-circle-dark";
     };
   };
 }
