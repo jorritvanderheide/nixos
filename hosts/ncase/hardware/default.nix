@@ -51,8 +51,13 @@
 
   # Conditionally persist directories
   mySystem = lib.mkIf config.mySystem.impermanence.enable {
-    impermanence.files = [
-      "/etc/fan2go/fan2go.yaml"
-    ];
+    impermanence = {
+      directories = [
+        "/etc/sysconfig"
+      ];
+      files = [
+        "/etc/fan2go/fan2go.yaml"
+      ];
+    };
   };
 }
