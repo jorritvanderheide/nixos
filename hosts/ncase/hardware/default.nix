@@ -27,6 +27,9 @@
       enable = true;
       enableGraphical = true;
     };
+
+    # Sensors
+    sensor.iio.enable = true;
   };
 
   # Services
