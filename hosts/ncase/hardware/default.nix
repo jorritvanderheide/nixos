@@ -1,6 +1,7 @@
 # Hardware configuration for Framework
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -44,6 +45,14 @@
 
   # Sensors
   environment.systemPackages = with pkgs; [
+    fan2go
     lm_sensors
   ];
+
+  # Conditionally persist directories
+  mySystem = lib.mkIf config.mySystem.impermanence.enable {
+    impermanence.files = [
+      "/etc/fan2go/fan2go.yaml"
+    ];
+  };
 }
