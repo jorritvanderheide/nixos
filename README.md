@@ -12,24 +12,33 @@ This repository contains a modular NixOS and Home Manager configuration. Some ke
 
 Follow these steps to install and configure the system:
 
-1. **Make a new host**: Create a new host for your system by copying one of the pre-existing hosts
+1. **Make a new host**: Create a new host for your system by copying one of the pre-existing host folders. It is convenient to do this on another machine and push it to Git. Make sure you disable secureboot In `hosts/<hostname>/default.nix` for the initial installation. You can re-enable it after the first boot.
 
-2. **Clone the repo**: Clone the repository using https:
+2. **Configure the disk**: Define the disk for installation in the disk module section of `hosts/<hostname>/default.nix` (ex. `nvme0n1`).
+
+3. **Create encryption key**: Generate a disk encryption password and store it in `/tmp/secret.key`.
 
    ```shell
-   git clone https://github.com/jorritvanderheide/nixos.git
+   nano /tmp/secret.key
    ```
 
-3. **Disable secure boot**: In the [mySystem configuration](<hosts/framework/default.nix>), disable secure boot for the initial installation. You can re-enable it after the first boot.
-
-4. **Configure the disk**: Define the disk for installation in the disk module section of the [mySystem configuration](<hosts/framework/default.nix>).
-
-5. **Create encryption key**: Generate a disk encryption password and store it in `/tmp/secret.key`.
-
-6. **Install OS**: With the previous steps completed, run the following command to partition the disk and install the operating system:
+4. **Install OS**: With the previous steps completed, run the following command to partition the disk and install the operating system:
 
    ```shell
-   sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake <path-to-flake>#framework --disk main </dev/disk-device>
+   sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake github:jorritvanderheide/nixos#<hostname> --disk main /dev/<disk>
+   ```
+
+5. **Setting up the home directory**: If using impermanence, reboot into the new system and make a new user directory in the persistent folder with your user as the owner:
+
+   ```shell
+   mkdir -p /persist/home/<username>
+   sudo chown <username>:users /persist/home/<username>
+   ```
+
+6. **Running Home Manager**: If Home Manager has not ran and you don't have access to user apps on your new system, you can run it manually:
+
+   ```shell
+   home-manager switch --flake /etc/nixos#<username>@<hostname>
    ```
 
 ## Enabling Secure Boot
@@ -43,8 +52,25 @@ After the first boot, if you wish to enable Secure Boot, follow the steps in the
 >    ```shell
 >    nix-shell -p sbctl run 'sudo sbctl create-keys'
 >    ```
+>
+> 2. Check if the keys were put in `/var/lib/sbctl`. If not, run:
+>
+>    ```shell
+>    sbctl setup --migrate
+>    ```
+> 3. Rebuild your system with the secure-boot module enabled.
+>
+> 4. Reboot into UEFI and enable secure boot. If possible, enter the secure boot setup mode and reboot into your system.
+>
+> 5. Enroll your keys:
+>
+>    ```shell
+>    sudo sbctl enroll-keys --microsoft
+>    ```
+>
+>    You can now reboot and secure boot should be enabled.
 
-## TPM-Based LUKS Decryption
+## TPM-Based LUKS decryption
 
 If you prefer a streamlined boot process and are willing to trade some security for convenience, you can configure your system to automatically decrypt the LUKS volume using the TPM.
 
@@ -53,3 +79,5 @@ To enable this feature, enroll your credentials with the following command:
 ```shell
 sudo systemd-cryptenroll --wipe-slot=tpm2 /dev/<encrypted-disk-partition> --tpm2-device=auto --tpm2-pcrs=0+2+7
 ```
+
+This will prompt you for a password, which should match with the password you entered in `/tmp/secret.key`.
