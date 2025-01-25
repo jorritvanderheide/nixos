@@ -17,7 +17,7 @@
   ];
 
   home-manager = {
-    backupFileExtension = "bkp";
+    backupFileExtension = "backup";
 
     extraSpecialArgs = {
       inherit inputs;
