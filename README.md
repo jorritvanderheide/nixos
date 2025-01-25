@@ -12,7 +12,9 @@ This repository contains a modular NixOS and Home Manager configuration. Some ke
 
 Follow these steps to install and configure the system:
 
-1. **Make a new host**: Create a new host for your system by copying one of the pre-existing host folders. It is convenient to do this on another machine and push it to Git. Make sure you disable secureboot In `hosts/<hostname>/default.nix` for the initial installation. You can re-enable it after the first boot.
+1. **Make a new host**: Create a new host for your system by copying one of the pre-existing host folders, and adding the new system and user to `flake.nix`. It is convenient to do this on another machine and push it to Git.
+
+   Make sure you disable secureboot In `hosts/<hostname>/default.nix` for the initial installation. You can re-enable it after the first boot.
 
 2. **Configure the disk**: Define the disk for installation in the disk module section of `hosts/<hostname>/default.nix` (ex. `nvme0n1`).
 
@@ -43,32 +45,31 @@ Follow these steps to install and configure the system:
 
 ## Enabling Secure Boot
 
-After the first boot, if you wish to enable Secure Boot, follow the steps in the [Lanzaboote quick-start guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md).
+After the first boot, if you wish to enable Secure Boot, follow the steps in the [Lanzaboote quick-start guide](https://github.com/nix-community/lanzaboote/blob/master/docs/QUICK_START.md). I also summarized the instructions below:
 
-> [!TLDR]- TLDR
-> 
-> 1. Create the required keys:
->
->    ```shell
->    nix-shell -p sbctl run 'sudo sbctl create-keys'
->    ```
->
-> 2. Check if the keys were put in `/var/lib/sbctl`. If not, run:
->
->    ```shell
->    sbctl setup --migrate
->    ```
-> 3. Rebuild your system with the secure-boot module enabled.
->
-> 4. Reboot into UEFI and enable secure boot. If possible, enter the secure boot setup mode and reboot into your system.
->
-> 5. Enroll your keys:
->
->    ```shell
->    sudo sbctl enroll-keys --microsoft
->    ```
->
->    You can now reboot and secure boot should be enabled.
+1. Create the required keys:
+
+   ```shell
+   nix-shell -p sbctl run 'sudo sbctl create-keys'
+   ```
+
+2. Check if the keys were put in `/var/lib/sbctl`. If not, run:
+
+   ```shell
+   sbctl setup --migrate
+   ```
+
+3. Rebuild your system with the secure-boot module enabled.
+
+4. Reboot into UEFI and enable secure boot. If possible, enter the secure boot setup mode and reboot into your system.
+
+5. Enroll your keys:
+
+   ```shell
+   sudo sbctl enroll-keys --microsoft
+   ```
+
+   You can now reboot and secure boot should be enabled.
 
 ## TPM-Based LUKS decryption
 
