@@ -12,6 +12,7 @@
     brave.enable = true;
     direnv.enable = true;
     discord.enable = true;
+    element.enable = true;
     fetch.enable = true;
     fish.enable = true;
     impermanence.enable = true;

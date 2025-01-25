@@ -21,6 +21,13 @@ in {
   };
 
   config = {
+    # Gnome tweaks & extensions
+    home.packages =
+      [
+        pkgs.gnome-tweaks
+      ]
+      ++ cfg.gnomeExtensions;
+
     # Persist directories
     myHome.impermanence = lib.mkIf config.myHome.impermanence.enable {
       directories = [
@@ -28,6 +35,23 @@ in {
         ".config/burn-my-windows"
       ];
     };
+
+    # Triple buffering patch for Mutter
+    nixpkgs.overlays = [
+      (final: prev: {
+        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
+          mutter = gnomePrev.mutter.overrideAttrs (old: {
+            src = pkgs.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
+              owner = "vanvugt";
+              repo = "mutter";
+              rev = "triple-buffering-v4-46";
+            };
+          });
+        });
+      })
+    ];
 
     # Dconf settings
     dconf.settings = {
@@ -181,24 +205,5 @@ in {
         show-directories-first = false;
       };
     };
-
-    # Gnome extensions
-    home.packages = cfg.gnomeExtensions;
-    # Triple buffering patch for Mutter
-    nixpkgs.overlays = [
-      (final: prev: {
-        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
-          mutter = gnomePrev.mutter.overrideAttrs (old: {
-            src = pkgs.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              hash = "sha256-fkPjB/5DPBX06t7yj0Rb3UEuu5b9mu3aS+jhH18+lpI=";
-              owner = "vanvugt";
-              repo = "mutter";
-              rev = "triple-buffering-v4-46";
-            };
-          });
-        });
-      })
-    ];
   };
 }
