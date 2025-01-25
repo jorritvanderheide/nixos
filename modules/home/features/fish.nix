@@ -76,6 +76,7 @@ in {
           "nshell" = "nix-shell -p";
           "ndev" = "nix develop";
           "nedit" = "code /etc/nixos";
+          "hswitch" = "home-manager switch --flake /etc/nixos#jorrit@$(hostname)";
 
           # Utility
           "c" = "clear";
