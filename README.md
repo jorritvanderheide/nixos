@@ -27,7 +27,7 @@ Follow these steps to install and configure the system:
 4. **Install OS**: With the previous steps completed, run the following command to partition the disk and install the operating system:
 
    ```shell
-   sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --flake github:jorritvanderheide/nixos#<hostname> --disk main /dev/<disk>
+   sudo nix --extra-experimental-features "nix-command flakes" run 'github:nix-community/disko/latest#disko-install' -- --write-efi-boot-entries --flake github:jorritvanderheide/nixos#<hostname> --disk main /dev/<disk>
    ```
 
 5. **Setting up the home directory**: If using impermanence, reboot into the new system and make a new user directory in the persistent folder with your user as the owner:
