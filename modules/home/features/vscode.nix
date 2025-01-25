@@ -40,6 +40,7 @@ in {
           # github.copilot
           # github.copilot-chat
           jnoortheen.nix-ide
+          b4dm4n.vscode-nixpkgs-fmt
           mkhl.direnv
           ms-azuretools.vscode-docker
           mvllow.rose-pine
