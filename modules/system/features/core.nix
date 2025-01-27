@@ -7,10 +7,7 @@
     # mySystem configuration
     mySystem = {
       ## Features
-      format.enable = true;
       home.enable = true;
-      impermanence.enable = true;
-      virtualization.enable = true;
 
       ### Gnome
       gnome = {

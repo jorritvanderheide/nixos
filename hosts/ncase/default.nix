@@ -9,8 +9,11 @@
     mySystem = {
       ## Features
       core.enable = true;
+      impermanence.enable = true;
+      nix.enable = true;
       secure-boot.enable = true;
       steam.enable = true;
+      virtualization.enable = true;
 
       ### Disks
       disks = {
