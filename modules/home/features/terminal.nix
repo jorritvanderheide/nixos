@@ -30,7 +30,7 @@
     };
   };
 
-  programs.starship = {
+  programs.starship = lib.mkForce {
     enable = true;
     enableFishIntegration = true;
     settings = {
@@ -49,13 +49,13 @@
       };
 
       git_branch = {
-        style = "bold green";
+        style = "bold #99c23b";
         symbol = "🌱 ";
       };
 
       nix_shell = {
         format = "via [$symbol dev-shell]($style) ";
-        style = "bold cyan";
+        style = "bold #e0e0e0";
         symbol = "🐚";
       };
     };
