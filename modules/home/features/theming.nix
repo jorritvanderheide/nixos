@@ -13,6 +13,8 @@
     gnome-tweaks
   ];
 
+  gtk.enable = lib.mkForce false;
+
   stylix = lib.mkDefault {
     enable = true;
     autoEnable = true;

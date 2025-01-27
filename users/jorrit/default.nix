@@ -17,7 +17,6 @@
     # Packages
     home.packages = with pkgs; [
       ## Fonts
-      cascadia-code
       inter
       meslo-lgs-nf
 
