@@ -141,7 +141,7 @@ in {
           "unite@hardpixel.eu"
         ];
         favorite-apps = [
-          "brave-browser.desktop"
+          "firefox.desktop"
           "code.desktop"
           "obsidian.desktop"
           "spotify.desktop"

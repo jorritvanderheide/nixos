@@ -4,12 +4,14 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+with lib;
+let
   cfg = config.mySystem.gnome;
 in {
   options.mySystem.gnome = {
-    excludePackages = lib.mkOption {
-      type = lib.types.listOf lib.types.package;
+    excludePackages = mkOption {
+      type = types.listOf types.package;
       default = [];
       description = ''
         packages to exclude
@@ -42,7 +44,7 @@ in {
     };
 
     # Conditional persist
-    mySystem.impermanence = lib.mkIf config.mySystem.impermanence.enable {
+    mySystem.impermanence = mkIf config.mySystem.impermanence.enable {
       directories = [
         "/var/lib/AccountsService"
       ];

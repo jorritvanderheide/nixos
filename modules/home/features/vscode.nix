@@ -43,7 +43,6 @@ in {
           jnoortheen.nix-ide
           mkhl.direnv
           ms-azuretools.vscode-docker
-          mvllow.rose-pine
         ]
         ++ cfg.extensions;
 
@@ -92,8 +91,8 @@ in {
           "terminal.integrated.fontLigatures" = true;
           "window.menuBarVisibility" = "toggle";
           "window.titleBarStyle" = "custom";
+          "workbench.colorTheme" = "Stylix";
           "workbench.startupEditor" = "none";
-          "workbench.colorTheme" = "Rosé Pine Moon";
 
           ## Nix settings
           "nix.serverPath" = "nixd";

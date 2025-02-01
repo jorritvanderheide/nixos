@@ -2,16 +2,14 @@
 # TODO Add ncase
 keys:
   - &hosts:
-    - &framework age1dd46w7resazwynqq3gwlkxsupuje8h8qmuf0ljdgap6dywqhfqfq6amj6v
-    - &ncase age19er7290jhdn3s2hgnr3gprxzaawqxd66u8tj4tdv3njfsnfqw3ksm75wsm
+    # - &framework age1d8mf30p85sdpytfg6dptn9crsxgx56e5kvzp8vl54v247sdh0q5qr63fjz
   - &users:
-    - &jorrit age1cxsymwqxq4hzvajcxmuv8m7yuslqa0rhnvkxv3ujkqrua7rngy8shhcw0m
+    - &jorrit age12hanketyv325jg8llm0tedcxred4datv6ysqgmfmzaxcclvuwsnqld5zrl
 creation_rules:
   - path_regex: hosts/secrets.yaml$
     key_groups:
     - age:
-      - *framework
-      - *ncase
+      # - *framework
   - path_regex: users/jorrit/secrets.yaml$
     key_groups:
     - age:

@@ -1,6 +1,5 @@
 # System configuration for Radboud
 {
-  config,
   pkgs,
   ...
 }: {
@@ -15,6 +14,7 @@
       format.enable = true;
       home.enable = true;
       impermanence.enable = true;
+      # secrets.enable = true;
       # secure-boot.enable = true;
       virtualization.enable = true;
 

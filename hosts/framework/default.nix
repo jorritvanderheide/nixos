@@ -11,6 +11,7 @@
       core.enable = true;
       impermanence.enable = true;
       nix.enable = true;
+      # secrets.enable = true;
       secure-boot.enable = true;
       virtualization.enable = true;
 
@@ -21,6 +22,15 @@
           hostId = "6812df18";
           encrypt = true;
           disk = "nvme0n1";
+        };
+      };
+
+      ### DNS over HTTPS
+      networking = {
+        enable = true;
+        dns = {
+          enable = true;
+          servers = [ "mullvad-all-doh" ];
         };
       };
 

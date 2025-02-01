@@ -11,6 +11,7 @@
       core.enable = true;
       impermanence.enable = true;
       nix.enable = true;
+      # secrets.enable = true;
       secure-boot.enable = true;
       steam.enable = true;
       virtualization.enable = true;

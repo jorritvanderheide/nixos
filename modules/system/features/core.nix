@@ -34,9 +34,6 @@
       };
     };
 
-    # Networking
-    networking.networkmanager.enable = true;
-
     # Auto-upgrade
     system.autoUpgrade = {
       enable = true;

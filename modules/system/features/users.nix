@@ -32,7 +32,7 @@
       name: user:
         {
           isNormalUser = true;
-          extraGroups = ["dialout" "docker" "libvirtd" "networkmanager" "wheel"]; # TODO: Move docker to module
+          extraGroups = ["dialout" "docker" "keys" "libvirtd" "networkmanager" "wheel"]; # TODO: Move to respepctive modules
           shell = pkgs.fish;
         }
         // user.userSettings

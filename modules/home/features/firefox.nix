@@ -1,18 +1,17 @@
-# Home manager module that configures Brave browser
+# Home manager module that configures Firefox
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    brave
-  ];
+  programs = {
+    firefox.enable = true;
+  };
 
   # Conditionally persist directories
   myHome = lib.mkIf config.myHome.impermanence.enable {
     impermanence.directories = [
-      ".config/BraveSoftware/Brave-Browser"
+      ".mozilla"
     ];
   };
 }

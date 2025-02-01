@@ -9,10 +9,6 @@
     inputs.stylix.homeManagerModules.stylix
   ];
 
-  home.packages = with pkgs; [
-    gnome-tweaks
-  ];
-
   stylix = lib.mkDefault {
     enable = true;
     autoEnable = true;

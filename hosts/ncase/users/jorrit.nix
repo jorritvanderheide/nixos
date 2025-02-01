@@ -1,5 +1,4 @@
 # User configuration for Jorrit @ Ncase
-# TODO move to user folder
 {...}: {
   imports = [
     ../../../users/jorrit
@@ -9,11 +8,13 @@
   config.myHome = {
     ## Features
     bambu-studio.enable = true;
-    brave.enable = true;
+    bitwarden.enable = true;
     direnv.enable = true;
     discord.enable = true;
+    firefox.enable = true;
     fish.enable = true;
     impermanence.enable = true;
+    matrix.enable = true;
     obsidian.enable = true;
     pinta.enable = true;
     signal.enable = true;
