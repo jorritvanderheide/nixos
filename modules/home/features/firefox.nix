@@ -51,33 +51,6 @@
           Locked = true;
           StartPage = "homepage";
         };
-        ManagedBookmarks = [
-          {
-            toplevel_name = "My bookmarks";
-          }
-          {
-            "name" = "Nix";
-            "children" = [
-              {
-                "name" = "Nix Search";
-                "url" = "https://search.nixos.org/packages";
-              }
-            ];
-          }
-          {
-            "name" = "General";
-            "children" = [
-              {
-                "name" = "ProtonMail";
-                "url" = "https://mail.proton.me/u/0/inbox";
-              }
-              {
-                "name" = "GitHub";
-                "url" = "https://github.com/login";
-              }
-            ];
-          }
-        ];
         NewTabPage = true;
         NoDefaultBookmarks = true;
         OverrideFirstRunPage = "";
