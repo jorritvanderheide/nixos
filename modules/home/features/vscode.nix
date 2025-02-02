@@ -54,7 +54,7 @@ in {
           ## Editor settings
           "editor.fontFamily" = "'Cascadia Code', Consolas, 'Courier New', monospace";
           "editor.fontLigatures" = false;
-          "editor.formatOnSave" = true;
+          "editor.formatOnSave" = false;
           "editor.minimap.enabled" = false;
           "editor.tokenColorCustomizations" = {
             "textMateRules" = [
@@ -95,7 +95,11 @@ in {
           "workbench.startupEditor" = "none";
 
           ## Nix settings
+          "[nix]" = {
+            "editor.defaultFormatter"= "jnoortheen.nix-ide";
+          };
           "nix.serverPath" = "nixd";
+          "nix.editor.defaultFormatter" = "jnoortheen.nix-ide";
           "nix.enableLanguageServer" = true;
           "nix.hiddenLanguageServerErrors" = [
             "textDocument/definition"

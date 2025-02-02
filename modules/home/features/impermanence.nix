@@ -31,7 +31,6 @@ in {
         [
           "Desktop"
           "Documents"
-          "Downloads"
           "Music"
           "Pictures"
           "Public"
