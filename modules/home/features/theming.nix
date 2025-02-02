@@ -49,8 +49,8 @@
       dark = "Tela-circle-dark";
     };
     targets = {
-      firefox.enabled = false;
-      vscode.enabled = false;
+      firefox.enable = false;
+      vscode.enable = false;
     };
   };
 }
