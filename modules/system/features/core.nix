@@ -1,8 +1,5 @@
 # System module that configures core features for any system
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   config = {
     # mySystem configuration
     mySystem = {

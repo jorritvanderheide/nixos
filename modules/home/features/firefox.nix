@@ -8,7 +8,7 @@
   programs = {
     firefox = {
       enable = true;
-      languagePacks = [ "nl" "en-US" ];
+      languagePacks = ["nl" "en-US"];
 
       # Set gnome browser connector
       package = pkgs.firefox.override {
@@ -20,9 +20,9 @@
       # https://mozilla.github.io/policy-templates
       policies = {
         # General
-        # BlockAboutConfig = true;
+        BlockAboutConfig = true;
         BlockAboutProfiles = true;
-        # BlockAboutSupport = true;
+        BlockAboutSupport = true;
         CaptivePortal = false;
         DisableAppUpdate = true;
         DisableFirefoxAccounts = true;
@@ -95,7 +95,7 @@
           FirefoxLabs = false;
           Locked = true;
         };
-       
+
         # Privacy & security
         AutofillAddressEnabled = false;
         AutofillCreditCardEnabled = false;
@@ -123,13 +123,13 @@
             "Wikipedia"
           ];
         };
-        SearchSuggestEnabled = false;
+        # SearchSuggestEnabled = false;
 
         # Extensions
-        BlockAboutAddons = false;
-        DisableSystemAddonUpdate = true;
+        # BlockAboutAddons = false;
+        # DisableSystemAddonUpdate = true;
         ExtensionSettings = {
-          # "*".installation_mode = "blocked";
+          "*".installation_mode = "blocked";
           # Bitwarden:
           "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/{446900e4-71c2-419f-a6a7-df9c091e268b}/latest.xpi";
@@ -160,10 +160,10 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi";
             installation_mode = "force_installed";
           };
-          default_area = "menupanel";
-          updates_disabled = true;
+          # default_area = "menupanel";
+          # updates_disabled = true;
         };
-        ExtensionUpdate = true;
+        # ExtensionUpdate = false;
         # InstallAddonsPermission = {
         #   Default = false;
         # };

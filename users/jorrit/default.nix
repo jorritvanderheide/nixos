@@ -57,7 +57,6 @@
     # Allow as unfree package
     nixpkgs.config.allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "discord"
         "nvidia-persistenced"
         "nvidia-settings"
         "nvidia-x11"

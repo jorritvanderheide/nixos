@@ -11,7 +11,6 @@
     bitwarden.enable = true;
     direnv.enable = true;
     discord.enable = true;
-    fetch.enable = true;
     firefox.enable = true;
     fish.enable = true;
     impermanence.enable = true;

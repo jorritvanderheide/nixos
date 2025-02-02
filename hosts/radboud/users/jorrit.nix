@@ -18,8 +18,9 @@
     pinta.enable = true;
     signal.enable = true;
     spotify.enable = true;
-    theming.enable = true;
     terminal.enable = true;
+    theming.enable = true;
+    vlc.enable = true;
 
     ## VS Code
     vscode = {

@@ -1,5 +1,5 @@
 # System configuration for Framework
-{ ... }: {
+{...}: {
   imports = [
     ./hardware
   ];

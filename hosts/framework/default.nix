@@ -1,5 +1,5 @@
 # System configuration for Framework
-{ ... }: {
+{...}: {
   imports = [
     ./hardware
   ];
@@ -25,12 +25,13 @@
         };
       };
 
-      ### DNS over HTTPS
+      ### Networking
       networking = {
         enable = true;
+        hostName = "framework";
         dns = {
           enable = true;
-          servers = [ "mullvad-all-doh" ];
+          servers = ["mullvad-all-doh"];
         };
       };
 
@@ -46,8 +47,5 @@
         };
       };
     };
-
-    # Networking
-    networking.hostName = "framework";
   };
 }

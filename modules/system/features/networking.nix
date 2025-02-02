@@ -1,29 +1,36 @@
 # System module that configures DNS over Https (DoH)
-{ config, lib, ... }:
-with lib;
-let
-  cfg = config.mySystem.networking;
-in
 {
+  config,
+  lib,
+  ...
+}:
+with lib; let
+  cfg = config.mySystem.networking;
+in {
   options.mySystem.networking = {
+    hostName = mkOption {
+      type = types.str;
+      default = "hostname";
+    };
     dns.enable = mkEnableOption "Enable custom DNS";
     dns.servers = mkOption {
       type = types.listOf types.str;
-      default = [ "mullvad-all-doh" ];
+      default = ["mullvad-all-doh"];
     };
   };
 
   config = lib.mkIf cfg.enable {
+    networking.hostName = cfg.hostName;
     networking.networkmanager.enable = true;
 
     # Custom DNS
-    networking.nameservers = mkIf cfg.dns.enable [ "127.0.0.1" "::1" ];
+    networking.nameservers = mkIf cfg.dns.enable ["127.0.0.1" "::1"];
     networking.networkmanager.dns = mkIf cfg.dns.enable "none";
 
     services.dnscrypt-proxy2 = mkIf cfg.dns.enable {
       enable = true;
       settings = {
-        listen_addresses = [ "127.0.0.1:53" "[::1]:53" ];
+        listen_addresses = ["127.0.0.1:53" "[::1]:53"];
 
         ipv6_servers = true;
         require_dnssec = true;

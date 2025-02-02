@@ -2,11 +2,11 @@
 {inputs, ...}: {
   imports = [
     # inputs.nixos-hardware.nixosModules.<device-nname> # Import community hardware module
-    ./hardware.nix
+    ./hardware.nix # TODO generate config
   ];
 
   # Enable TPM
-  boot.initrd.availableKernelModules = ["tpm_tis"];
+  # boot.initrd.availableKernelModules = ["tpm_tis"]; # TODO Find with sudo systemd-cryptenroll --tpm2-device=list
 
   # Hardware
   hardware = {
@@ -22,12 +22,6 @@
 
   # Services
   services = {
-    # ## Driver updates - See if supported
-    # fwupd = {
-    #   enable = true;
-    #   extraRemotes = ["lvfs-testing"]; # See https://github.com/NixOS/nixos-hardware/tree/master/framework
-    # };
-
     ## Power
     power-profiles-daemon.enable = false;
     auto-cpufreq.enable = true;

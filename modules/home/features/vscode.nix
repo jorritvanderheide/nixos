@@ -97,7 +97,7 @@ in {
 
           ## Nix settings
           "[nix]" = {
-            "editor.defaultFormatter"= "jnoortheen.nix-ide";
+            "editor.defaultFormatter" = "jnoortheen.nix-ide";
           };
           "nix.serverPath" = "nixd";
           "nix.editor.defaultFormatter" = "jnoortheen.nix-ide";
