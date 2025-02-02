@@ -48,5 +48,9 @@
       light = "Tela-circle-light";
       dark = "Tela-circle-dark";
     };
+    stylix.targets = {
+      firefox.enabled = false;
+      vscode.enabled = false;
+    };
   };
 }
