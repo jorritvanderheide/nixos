@@ -13,8 +13,6 @@
       core.enable = true;
       impermanence.enable = true;
       nix.enable = true;
-      # secrets.enable = true;
-      # secure-boot.enable = true;
       virtualization.enable = true;
 
       ### Disks
@@ -35,6 +33,12 @@
           enable = true;
           servers = [ "mullvad-all-doh" ];
         };
+      };
+
+      # Secure boot
+      secure-boot = {
+        enable = true;
+        pkiBundlePath = "/etc/secureboot";
       };
 
       # Users

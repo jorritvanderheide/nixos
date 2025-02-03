@@ -1,12 +1,11 @@
 # Hardware configuration for Radboud
-{inputs, ...}: {
+{ ...}: {
   imports = [
-    # inputs.nixos-hardware.nixosModules.<device-nname> # Import community hardware module
     ./hardware.nix # TODO generate config
   ];
 
   # Enable TPM
-  # boot.initrd.availableKernelModules = ["tpm_tis"]; # TODO Find with sudo systemd-cryptenroll --tpm2-device=list
+  boot.initrd.availableKernelModules = ["tpm_tis"];
 
   # Hardware
   hardware = {
