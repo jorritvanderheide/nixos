@@ -133,6 +133,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/{32aac792-0421-4e99-917a-c849311377ce}/latest.xpi";
             installation_mode = "force_installed";
           };
+          # Stylus
+          "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" = {
+            unstall_url = "https://addons.mozilla.org/firefox/downloads/latest/{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}/latest.xpi";
+            installation_mode = "force_installed";
+          };
           # uBlock Origin
           "uBlock0@raymondhill.net" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi";
