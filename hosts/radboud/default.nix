@@ -29,8 +29,9 @@
       networking = {
         enable = true;
         hostName = "radboud";
+        firewall.enable = false;
         dns = {
-          enable = true;
+          enable = false;
           servers = [ "mullvad-all-doh" ];
         };
       };
