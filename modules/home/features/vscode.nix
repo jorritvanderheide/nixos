@@ -44,6 +44,7 @@ in {
           mkhl.direnv
           ms-azuretools.vscode-docker
           mvllow.rose-pine
+          tal7aouy.icons
         ]
         ++ cfg.extensions;
 
@@ -125,8 +126,23 @@ in {
               };
             };
           };
-        }
-        // cfg.userSettings;
+
+          # Vue settings
+          "[vue]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            "editor.formatOnPaste" = true;
+            "editor.formatOnType" = false;
+            "editor.formatOnSave" = true;
+            "editor.formatOnSaveMode"= "file";
+            "files.autoSave" = "onFocusChange";
+            "vs-code-prettier-eslint.prettierLast" = false;
+          };
+          
+          # TypeScript settings
+          "[typescript]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+        } // cfg.userSettings;
     };
 
     # Conditionally set as default editor
