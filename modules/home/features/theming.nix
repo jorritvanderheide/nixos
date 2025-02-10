@@ -1,10 +1,10 @@
 # Home manager module that configures GTK theming and Stylix
-{
+{ config,
   inputs,
   lib,
   pkgs,
   ...
-}: {
+}: with lib; {
   imports = [
     inputs.stylix.homeManagerModules.stylix
   ];
@@ -52,5 +52,14 @@
       firefox.enable = false;
       vscode.enable = false;
     };
+  };
+
+  # Conditionally persist directories
+  # Temporary fix for backup error when switching home-manager
+  myHome = mkIf config.myHome.impermanence.enable {
+    impermanence.directories = [
+      ".config/gtk-3.0"
+      ".config/gtk-4.0"
+    ];
   };
 }
