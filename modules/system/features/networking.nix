@@ -12,6 +12,10 @@ in {
       type = types.str;
       default = "hostname";
     };
+    firewall.enable = mkOption {
+      type = types.bool;
+      default = true;
+    };
     dns.enable = mkEnableOption "Enable custom DNS";
     dns.servers = mkOption {
       type = types.listOf types.str;
@@ -20,6 +24,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    networking.firewall.enable = cfg.firewall.enable;
     networking.hostName = cfg.hostName;
     networking.networkmanager.enable = true;
 
