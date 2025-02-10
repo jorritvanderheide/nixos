@@ -84,7 +84,7 @@
         DisableSecurityBypass = true;
         DisableTelemetry = true;
         EnableTrackingProtection = true;
-        HttpsOnlyMode = "force_enabled";
+        HttpsOnlyMode = "allowed";
         PasswordManagerEnabled = false;
         SanitizeOnShutdown = true;
         SearchEngines = {
