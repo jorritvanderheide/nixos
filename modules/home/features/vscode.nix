@@ -133,16 +133,22 @@ in {
             "editor.formatOnPaste" = true;
             "editor.formatOnType" = false;
             "editor.formatOnSave" = true;
-            "editor.formatOnSaveMode"= "file";
+            "editor.formatOnSaveMode" = "file";
             "files.autoSave" = "onFocusChange";
             "vs-code-prettier-eslint.prettierLast" = false;
           };
-          
+
           # TypeScript settings
           "[typescript]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
-        } // cfg.userSettings;
+
+          # File association settings
+          "files.associations" = {
+            "*.css" = "tailwindcss";
+          };
+        }
+        // cfg.userSettings;
     };
 
     # Conditionally set as default editor
