@@ -60,8 +60,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
-        picture-uri-dark = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
+        picture-uri = lib.mkDefault "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
+        picture-uri-dark = lib.mkDefault "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {
