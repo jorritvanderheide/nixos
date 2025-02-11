@@ -40,6 +40,13 @@ in {
           zfs reservation
         '';
       };
+      useSwap = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = ''
+          whether a swap file should be used
+        '';
+      };
     };
   };
 
@@ -169,6 +176,14 @@ in {
                 mountpoint = "/persist";
                 options."com.sun:auto-snapshot" = "false";
                 postCreateHook = "zfs snapshot zroot/persist@empty";
+              };
+              swap = lib.mkIf (cfg.zfs.useSwap) {
+                type = "zfs_fs";
+                options = {
+                  mountpoint = "none";
+                  swap = "on";
+                };
+                postCreateHook = "zfs set compression=off zroot/swap";
               };
             };
           };

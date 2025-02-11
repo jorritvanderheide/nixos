@@ -22,6 +22,7 @@
           hostId = "5345cb19";
           encrypt = true;
           disk = "nvme0n1";
+          useSwap = true;
         };
       };
 
@@ -30,10 +31,6 @@
         enable = true;
         hostName = "radboud";
         firewall.enable = false;
-        dns = {
-          enable = false;
-          servers = [ "mullvad-all-doh" ];
-        };
       };
 
       # Secure boot

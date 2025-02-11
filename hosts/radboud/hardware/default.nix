@@ -15,16 +15,10 @@
       enable = true;
       enableGraphical = true;
     };
-
-    # Sensors
-    sensor.iio.enable = true;
   };
 
   # Services
   services = {
-    ## Fingeprint
-    fprintd.enable = true;
-
     ## Power
     power-profiles-daemon.enable = false;
     auto-cpufreq.enable = true;
@@ -39,4 +33,9 @@
       };
     };
   };
+
+  # Swapfile
+  swapDevices = [ {
+    device = "/dev/zvol/zroot/swap";
+  } ];
 }

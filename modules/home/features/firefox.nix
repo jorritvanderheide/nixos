@@ -143,6 +143,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/uBlock0@raymondhill.net/latest.xpi";
             installation_mode = "force_installed";
           };
+          # Vue DevTools
+          "{5caff8cc-3d2e-4110-a88a-003cc85b3858}" = {
+             install_url = "https://addons.mozilla.org/firefox/downloads/latest/{5caff8cc-3d2e-4110-a88a-003cc85b3858}/latest.xpi";
+            installation_mode = "force_installed";
+          };
           # default_area = "menupanel";
           # updates_disabled = true;
         };
