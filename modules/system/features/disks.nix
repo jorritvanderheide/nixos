@@ -40,12 +40,21 @@ in {
           zfs reservation
         '';
       };
-      useSwap = lib.mkOption {
-        type = lib.types.bool;
-        default = false;
-        description = ''
-          whether a swap file should be used
-        '';
+      swap = {
+        enable = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = ''
+            whether a swap file should be used
+          '';
+        };
+        size = lib.mkOption {
+          type = lib.types.str;
+          default = "32G"; # Should be RAM * 2 in most cases
+          description = ''
+            swapfile size
+          '';
+        };
       };
     };
   };
@@ -177,8 +186,9 @@ in {
                 options."com.sun:auto-snapshot" = "false";
                 postCreateHook = "zfs snapshot zroot/persist@empty";
               };
-              swap = lib.mkIf (cfg.zfs.useSwap) {
+              swap = lib.mkIf (cfg.zfs.swap.enable) {
                 type = "zfs_fs";
+                # size = cfg.zfs.swap.size; # Fixme
                 options = {
                   mountpoint = "none";
                   swap = "on";

@@ -22,7 +22,10 @@
           hostId = "5345cb19";
           encrypt = true;
           disk = "nvme0n1";
-          useSwap = true;
+          swap = {
+            enable = true;
+            size = "32G";
+          };
         };
       };
 

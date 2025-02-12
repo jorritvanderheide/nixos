@@ -79,14 +79,13 @@
         DisableFormHistory = true;
         DisableFirefoxScreenshots = true;
         DisableFirefoxStudies = true;
-        DisablePrivateBrowsing = true;
         DisableProfileImport = true;
         DisableSecurityBypass = true;
         DisableTelemetry = true;
         EnableTrackingProtection = true;
         HttpsOnlyMode = "allowed";
         PasswordManagerEnabled = false;
-        SanitizeOnShutdown = true;
+        # SanitizeOnShutdown = true;
         SearchEngines = {
           Default = "DuckDuckGo";
           PreventInstalls = true;
