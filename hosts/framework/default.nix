@@ -29,10 +29,6 @@
       networking = {
         enable = true;
         hostName = "framework";
-        dns = {
-          enable = true;
-          servers = ["mullvad-all-doh"];
-        };
       };
 
       ### Users

@@ -12,11 +12,14 @@ in {
       type = types.str;
       default = "hostname";
     };
+    dns.enable = mkEnableOption {
+       type = types.listOf types.bool;
+       default = false;
+    };
     firewall.enable = mkOption {
       type = types.bool;
       default = true;
     };
-    dns.enable = mkEnableOption "Enable custom DNS";
     dns.servers = mkOption {
       type = types.listOf types.str;
       default = ["mullvad-all-doh"];
