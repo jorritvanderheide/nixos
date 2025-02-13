@@ -17,23 +17,6 @@
     };
   };
 
-  # Services
-  services = {
-    ## Power
-    power-profiles-daemon.enable = false;
-    auto-cpufreq.enable = true;
-    auto-cpufreq.settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "default";
-        turbo = "never";
-      };
-    };
-  };
-
   # Swapfile
   swapDevices = [ {
     device = "/dev/zvol/zroot/swap";
