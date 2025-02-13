@@ -122,6 +122,11 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/idcac-pub@guus.ninja/latest.xpi";
             installation_mode = "force_installed";
           };
+          # Lean Library
+          "{809ea8a3-a45d-41a2-9cb0-e7c7d7321db5}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/{809ea8a3-a45d-41a2-9cb0-e7c7d7321db5}/latest.xpi";
+            installation_mode = "force_installed";
+          };
           # Privacy Badger
           "jid1-MnnxcxisBPnSXQ@jetpack" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/jid1-MnnxcxisBPnSXQ@jetpack/latest.xpi";
