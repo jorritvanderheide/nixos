@@ -60,8 +60,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = lib.mkDefault "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
-        picture-uri-dark = lib.mkDefault "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
+        # picture-uri = "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}"; # Set by Stylix
+        picture-uri-dark = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {
@@ -127,7 +127,7 @@ in {
         enabled-extensions = [
           "AlphabeticalAppGrid@stuarthayhurst"
           "appindicatorsupport@rgcjonas.gmail.com"
-          "blur-my-shell@aunetx"
+          # "blur-my-shell@aunetx"
           "burn-my-windows@schneegans.github.com"
           "caffeine@patapon.info"
           "clipboard-indicator@tudmotu.com"
