@@ -15,7 +15,6 @@
     fish.enable = true;
     impermanence.enable = true;
     matrix.enable = true;
-    mullvad.enable = true;
     obsidian.enable = true;
     pinta.enable = true;
     qbittorrent.enable = true;
