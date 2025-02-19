@@ -18,6 +18,13 @@ in {
         extensions to use
       '';
     };
+    performance = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        enable performance mode for lower specced systems
+      '';
+    };
   };
 
   config = {
@@ -124,22 +131,28 @@ in {
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = [
-          "AlphabeticalAppGrid@stuarthayhurst"
-          "appindicatorsupport@rgcjonas.gmail.com"
-          # "blur-my-shell@aunetx"
-          "burn-my-windows@schneegans.github.com"
-          "caffeine@patapon.info"
-          "clipboard-indicator@tudmotu.com"
-          "color-picker@tuberry"
-          "dash-to-dock@micxgx.gmail.com"
-          "impatience@gfxmonk.net"
-          "mprisLabel@moon-0xff.github.com"
-          "nightthemeswitcher@romainvigier.fr"
-          "steal-my-focus-window@steal-my-focus-window"
-          "user-theme@gnome-shell-extensions.gcampax.github.com"
-          "unite@hardpixel.eu"
-        ];
+        enabled-extensions = let
+          extraExtensions = lib.optional (!config.myHome.gnome.performance) [
+            "blur-my-shell@aunetx"
+            "burn-my-windows@schneegans.github.com"
+            "dash-to-dock@micxgx.gmail.com"
+          ];
+        in
+          [
+            "AlphabeticalAppGrid@stuarthayhurst"
+            "appindicatorsupport@rgcjonas.gmail.com"
+            "caffeine@patapon.info"
+            "clipboard-indicator@tudmotu.com"
+            "color-picker@tuberry"
+            "impatience@gfxmonk.net"
+            "mprisLabel@moon-0xff.github.com"
+            "nightthemeswitcher@romainvigier.fr"
+            "steal-my-focus-window@steal-my-focus-window"
+            "user-theme@gnome-shell-extensions.gcampax.github.com"
+            "unite@hardpixel.eu"
+          ]
+          ++ extraExtensions;
+
         favorite-apps = [
           "firefox.desktop"
           "code.desktop"

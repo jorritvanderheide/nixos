@@ -23,6 +23,9 @@
     theming.enable = true;
     vlc.enable = true;
 
+    ## Gnome
+    gnome.performance = true;
+
     ## VS Code
     vscode = {
       enable = true;
