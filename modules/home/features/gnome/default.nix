@@ -131,13 +131,7 @@ in {
 
       "org/gnome/shell" = {
         disable-user-extensions = false;
-        enabled-extensions = let
-          extraExtensions = lib.optional (!config.myHome.gnome.performance) [
-            "blur-my-shell@aunetx"
-            "burn-my-windows@schneegans.github.com"
-            "dash-to-dock@micxgx.gmail.com"
-          ];
-        in
+        enabled-extensions =
           [
             "AlphabeticalAppGrid@stuarthayhurst"
             "appindicatorsupport@rgcjonas.gmail.com"
@@ -151,7 +145,11 @@ in {
             "user-theme@gnome-shell-extensions.gcampax.github.com"
             "unite@hardpixel.eu"
           ]
-          ++ extraExtensions;
+          ++ lib.optionals (!config.myHome.gnome.performance) [
+            "blur-my-shell@aunetx"
+            "burn-my-windows@schneegans.github.com"
+            "dash-to-dock@micxgx.gmail.com"
+          ];
 
         favorite-apps = [
           "firefox.desktop"
