@@ -1,5 +1,5 @@
 # User configuration for Jorrit @ Framework
-{...}: {
+{pkgs, ...}: {
   imports = [
     ../../../users/jorrit
   ];
@@ -11,7 +11,6 @@
     bitwarden.enable = true;
     direnv.enable = true;
     discord.enable = true;
-    eduvpn.enable = true;
     firefox.enable = true;
     fish.enable = true;
     impermanence.enable = true;
@@ -29,6 +28,10 @@
     vscode = {
       enable = true;
       setEditor = true;
+      extensions = with pkgs.vscode-extensions; [
+        bradlc.vscode-tailwindcss
+        vue.volar
+      ];
     };
   };
 }

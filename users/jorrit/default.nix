@@ -67,6 +67,8 @@
         "steam-unwrapped"
         "steam-run"
         "vscode"
+        "vscode-extension-github-copilot"
+        "vscode-extension-github-copilot-chat"
       ];
 
     # End of config

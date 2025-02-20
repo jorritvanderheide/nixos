@@ -35,11 +35,10 @@ in {
       extensions = with pkgs.vscode-extensions;
         [
           b4dm4n.vscode-nixpkgs-fmt
-          bradlc.vscode-tailwindcss
           eamodio.gitlens
           esbenp.prettier-vscode
-          # github.copilot
-          # github.copilot-chat
+          github.copilot
+          github.copilot-chat
           jnoortheen.nix-ide
           mkhl.direnv
           ms-azuretools.vscode-docker
