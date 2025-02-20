@@ -75,6 +75,7 @@ in {
               }
             ];
           };
+          "editor.wordWrap" = "on";
 
           ## Extensions settings
           "extensions.ignoreRecommendations" = true;
@@ -100,16 +101,12 @@ in {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
           };
           "nix.serverPath" = "nixd";
-          "nix.editor.defaultFormatter" = "jnoortheen.nix-ide";
           "nix.enableLanguageServer" = true;
           "nix.hiddenLanguageServerErrors" = [
             "textDocument/definition"
             "textDocument/documentHighlight"
             "textDocument/formatting"
           ];
-          "nixpkgs" = {
-            "expr" = "import <nixpkgs> { }";
-          };
           "nix.serverSettings" = {
             "nixd" = {
               "formatting" = {
