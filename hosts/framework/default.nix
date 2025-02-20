@@ -29,6 +29,7 @@
       networking = {
         enable = true;
         hostName = "framework";
+        firewall.enable = false;
       };
 
       ### Users
