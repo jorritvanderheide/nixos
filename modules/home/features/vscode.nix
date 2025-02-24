@@ -40,6 +40,7 @@ in {
           github.copilot
           github.copilot-chat
           jnoortheen.nix-ide
+          kamadorueda.alejandra
           mkhl.direnv
           ms-azuretools.vscode-docker
           mvllow.rose-pine
@@ -98,7 +99,7 @@ in {
 
           ## Nix settings
           "[nix]" = {
-            "editor.defaultFormatter" = "jnoortheen.nix-ide";
+            "editor.defaultFormatter" = "kamadorueda.alejandra";
           };
 
           # Vue settings
