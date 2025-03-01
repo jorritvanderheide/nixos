@@ -16,7 +16,7 @@
       ];
 
       monitor = [
-        "eDP-1, 2256x1504@60, 0x0, 1"
+        "eDP-1, 2256x1504@60, 0x0, 1.175"
         "DP-1, preferred, 2256x-1128, 1"
       ];
 
@@ -38,10 +38,6 @@
 
         active_opacity = 1.0;
         inactive_opacity = 1.0;
-
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
 
         blur = {
           enabled = true;
