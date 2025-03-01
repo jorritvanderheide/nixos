@@ -6,11 +6,11 @@
 
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home-manager/features/hyprland/scripts/set-wallpaper.sh &"
+      "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
     ];
 
     monitor = [
-      "eDP-1, 2256x1504@60, 0x0, 1.175"
+      "eDP-1, 2256x1504@60, 0x0, 1"
       "DP-1, preferred, 2256x-1128, 1"
     ];
 
