@@ -9,7 +9,6 @@
     mySystem = {
       ## Features
       core.enable = true;
-      hyprland.enable = true; # Move to core when done
       impermanence.enable = true;
       nix.enable = true;
       secure-boot.enable = true;

@@ -4,6 +4,21 @@
     ./keybindings.nix
   ];
 
+  # Enable Hyprland
+  wayland.windowManager.hyprland.enable = true;
+
+  # Set ozone environment variable
+  # home.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Packages
+  home.packages = with pkgs; [
+    hyprnome
+    kitty
+    rofi-wayland
+    swww
+  ];
+
+  # Configure Hyprland
   wayland.windowManager.hyprland.settings = {
     exec-once = [
       "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
