@@ -13,21 +13,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # cliphist
-    # dunst
-    # hyprnome
-    # hyprpicker
-    # hyprpolkitagent
+    cliphist
+    dunst
+    hyprnome
+    hyprpicker
+    hyprpolkitagent
     kitty
-    # nautilus
-    # nwg-look
-    # pipewire
-    # swww
-    # udiskie
-    # waybar
-    # wireplumber
-    # wl-clipboard
-    # wofi
+    nautilus
+    nwg-look
+    pipewire
+    swww
+    udiskie
+    waybar
+    wireplumber
+    wl-clipboard
+    wofi
   ];
 
   # Optional, hint Electron apps to use Wayland:

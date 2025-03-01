@@ -9,9 +9,9 @@
       "$mod, C, exec, uwsm app -- code"
       "$mod, E, exec, uwsm app -- nautilus"
       "$mod, Q, killactive"
-      "$mod, SUPER_L, exec, pkill wofi || rofi -show drun -run-command 'uwsm app -- {cmd}'"
-      "$mod SHIFT, C, exec, hyprpicker -a"
-      "$mod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+      "$mod, SUPER_L, exec, pkill wofi || uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)"
+      "$mod SHIFT, C, exec, uwsm app -- hyprpicker -a"
+      "$mod, V, exec, cliphist list | wuwsm app -- $(wofi --show dmenu) | cliphist decode | wl-copy"
 
       "$mod, Space, togglespecialworkspace, special"
       "$mod SHIFT, Space, movetoworkspace, special"
