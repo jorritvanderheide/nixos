@@ -3,18 +3,35 @@
   pkgs,
   ...
 }: {
+  programs.uwsm.enable = true;
+
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages."${pkgs.system}".hyprland;
     portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    withUWSM = true;
   };
 
   environment.systemPackages = with pkgs; [
-    hyprnome
+    # cliphist
+    # dunst
+    # hyprnome
+    # hyprpicker
+    # hyprpolkitagent
     kitty
-    rofi-wayland
-    swww
+    # nautilus
+    # nwg-look
+    # pipewire
+    # swww
+    # udiskie
+    # waybar
+    # wireplumber
+    # wl-clipboard
+    # wofi
   ];
+
+  # Optional, hint Electron apps to use Wayland:
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable cachix for Hyprland
   nix.settings = {

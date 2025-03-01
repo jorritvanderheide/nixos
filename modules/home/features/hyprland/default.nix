@@ -7,13 +7,28 @@
   # Configure Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = null;
-    # portalPackage = null;
+    package = null;
+    portalPackage = null;
+    systemd.enable = false;
 
     settings = {
-      exec-once = [
-        "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
-      ];
+      # exec-once = [
+      #   # Authentication agent
+      #   "systemctl - -user start hyprpolkitagent"
+
+      #   # Waybay
+      #   "waybar"
+
+      #   # Wallpaper
+      #   "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
+
+      #   # Clipboard
+      #   "wl-paste --type text --watch cliphist store" # Stores only text data
+      #   "wl-paste --type image --watch cliphist store" # Stores only image data
+
+      #   # Automatic disk mouning
+      #   "udiskie"
+      # ];
 
       monitor = [
         "eDP-1, 2256x1504@60, 0x0, 1.175"
