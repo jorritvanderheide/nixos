@@ -1,19 +1,15 @@
 {
   inputs = {
     # Official sources
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:jorritvanderheide/nixos-hardware";
 
     # Community sources
     disko.url = "github:nix-community/disko"; # Disk management
+    home-manager.url = "github:nix-community/home-manager"; # User environment management
     hyprland.url = "github:hyprwm/Hyprland"; # Hyprland window manager
     impermanence.url = "github:nix-community/impermanence"; # Ephemeral system configs
-
-    ## User environment management
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    stylix.url = "github:danth/stylix"; # Stylix theme manager
 
     ## Bootloader management
     lanzaboote = {
@@ -30,12 +26,6 @@
     ## Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    ##Stylix
-    stylix = {
-      url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
