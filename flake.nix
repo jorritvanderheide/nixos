@@ -6,6 +6,7 @@
 
     # Community sources
     disko.url = "github:nix-community/disko"; # Disk management
+    hyprland.url = "github:hyprwm/Hyprland"; # Hyprland window manager
     impermanence.url = "github:nix-community/impermanence"; # Ephemeral system configs
 
     ## User environment management

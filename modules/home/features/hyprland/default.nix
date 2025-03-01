@@ -4,65 +4,55 @@
     ./keybindings.nix
   ];
 
-  # Enable Hyprland
-  wayland.windowManager.hyprland.enable = true;
-
-  # Set ozone environment variable
-  # home.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Packages
-  home.packages = with pkgs; [
-    hyprnome
-    kitty
-    rofi-wayland
-    swww
-  ];
-
   # Configure Hyprland
-  wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
-    ];
+  wayland.windowManager.hyprland = {
+    enable = true;
 
-    monitor = [
-      "eDP-1, 2256x1504@60, 0x0, 1"
-      "DP-1, preferred, 2256x-1128, 1"
-    ];
+    settings = {
+      exec-once = [
+        "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
+      ];
 
-    general = {
-      gaps_in = 10;
-      gaps_out = 20;
+      monitor = [
+        "eDP-1, 2256x1504@60, 0x0, 1"
+        "DP-1, preferred, 2256x-1128, 1"
+      ];
 
-      border_size = 2;
+      general = {
+        gaps_in = 10;
+        gaps_out = 20;
 
-      resize_on_border = false;
+        border_size = 2;
 
-      allow_tearing = false;
+        resize_on_border = false;
 
-      layout = "dwindle";
-    };
+        allow_tearing = false;
 
-    decoration = {
-      rounding = 10;
-
-      active_opacity = 1.0;
-      inactive_opacity = 1.0;
-
-      drop_shadow = true;
-      shadow_range = 4;
-      shadow_render_power = 3;
-
-      blur = {
-        enabled = true;
-        size = 3;
-        passes = 1;
-
-        vibrancy = 0.1696;
+        layout = "dwindle";
       };
-    };
 
-    gestures = {
-      workspace_swipe = true;
+      decoration = {
+        rounding = 10;
+
+        active_opacity = 1.0;
+        inactive_opacity = 1.0;
+
+        drop_shadow = true;
+        shadow_range = 4;
+        shadow_render_power = 3;
+
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+
+          vibrancy = 0.1696;
+        };
+      };
+
+      gestures = {
+        workspace_swipe = true;
+      };
     };
   };
 }
