@@ -12,7 +12,7 @@
   # Conditionally persist directories
   myHome = lib.mkIf config.myHome.impermanence.enable {
     impermanence.directories = [
-      "qBittorrent"
+      ".config/qBittorrent"
     ];
   };
 }

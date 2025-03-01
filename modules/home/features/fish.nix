@@ -54,6 +54,7 @@ in {
           # General
           ".." = "cd ..";
           "..." = "cd ../..";
+          "cp" = "rsync -ah --info=progress2";
           "neofetch" = "fastfetch";
 
           # Git

@@ -8,7 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     alejandra
-    nixd
-    nixpkgs-fmt
+    # nixd
+    # nixpkgs-fmt
   ];
 }

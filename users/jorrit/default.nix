@@ -22,6 +22,9 @@
 
       ## CLI
       figlet
+
+      ## Other
+      ntfs3g
     ];
 
     # myHome configuration

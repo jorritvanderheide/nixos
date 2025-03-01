@@ -101,6 +101,28 @@ in {
           "[nix]" = {
             "editor.defaultFormatter" = "kamadorueda.alejandra";
           };
+          # "nix.serverPath" = "nixd";
+          # "nix.enableLanguageServer" = true;
+          # "nix.hiddenLanguageServerErrors" = [
+          #   "textDocument/definition"
+          #   "textDocument/documentHighlight"
+          #   "textDocument/formatting"
+          # ];
+          # "nix.serverSettings" = {
+          #   "nixd" = {
+          #     "formatting" = {
+          #       "command" = ["alejandra"];
+          #     };
+          #     "options" = {
+          #       "nixos" = {
+          #         "expr" = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.framework.options";
+          #       };
+          #       "home-manager" = {
+          #         "expr" = "(builtins.getFlake \"/etc/nixos\").homeConfigurations.jorrit.options";
+          #       };
+          #     };
+          #   };
+          # };
 
           # Vue settings
           "[vue]" = {
