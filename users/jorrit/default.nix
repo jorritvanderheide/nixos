@@ -58,21 +58,25 @@
     };
 
     # Allow as unfree package
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "nvidia-persistenced"
-        "nvidia-settings"
-        "nvidia-x11"
-        "obsidian"
-        "spotify"
-        "steam"
-        "steam-original"
-        "steam-unwrapped"
-        "steam-run"
-        "vscode"
-        "vscode-extension-github-copilot"
-        "vscode-extension-github-copilot-chat"
-      ];
+    nixpkgs.config = {
+      allowUnfreePredicate = pkg:
+        builtins.elem (lib.getName pkg) [
+          "nvidia-persistenced"
+          "nvidia-settings"
+          "nvidia-x11"
+          "obsidian"
+          "spotify"
+          "steam"
+          "steam-original"
+          "steam-unwrapped"
+          "steam-run"
+          "vscode"
+          "vscode-extension-github-copilot"
+          "vscode-extension-github-copilot-chat"
+        ];
+
+      allowBroken = true;
+    };
 
     # End of config
     home.stateVersion = "24.11"; # Do not change

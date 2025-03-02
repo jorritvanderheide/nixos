@@ -1,5 +1,5 @@
 # Home manager module that configures GTK theming and Stylix
-{ 
+{
   inputs,
   lib,
   pkgs,
@@ -12,7 +12,7 @@
   stylix = lib.mkDefault {
     enable = true;
     autoEnable = true;
-    image = builtins.path {path = ../../../assets/images/wallpaper-light.jpg;}; # Disable when https://github.com/danth/stylix/pull/717 is merged
+    image = null; # Disable when https://github.com/danth/stylix/pull/717 is merged
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     cursor = {
       package = pkgs.rose-pine-cursor;
@@ -50,6 +50,7 @@
     };
     targets = {
       firefox.enable = false;
+      hyprland.enable = false;
       vscode.enable = false;
     };
   };

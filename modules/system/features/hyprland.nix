@@ -13,8 +13,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
     cliphist
     dunst
+    hyprlock
     hyprnome
     hyprpicker
     hyprpolkitagent
@@ -24,7 +26,6 @@
     pipewire
     swww
     udiskie
-    waybar
     wireplumber
     wl-clipboard
     wofi
