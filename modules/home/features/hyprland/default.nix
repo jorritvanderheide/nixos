@@ -5,10 +5,7 @@
   lib,
   pkgs,
   ...
-}: let
-  base16 = pkgs.callPackage inputs.base16.lib {};
-  colors = base16.mkSchemeAttrs "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
-in {
+}: {
   imports = [
     ./keybindings.nix
   ];
@@ -32,8 +29,8 @@ in {
         "swww-daemon & sleep 0.5 && ${pkgs.bash}/bin/bash /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh &"
 
         # Clipboard
-        "wl-paste --type text --watch cliphist store" # Stores only text data
-        "wl-paste --type image --watch cliphist store" # Stores only image data
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
 
         # Automatic disk mouning
         "udiskie"
@@ -48,16 +45,16 @@ in {
         gaps_in = 10;
         gaps_out = 20;
         border_size = 4;
-        "col.active_border" = "rgba(${colors.base0C}ff)";
-        "col.inactive_border" = "rgba(${colors.base05}ff)";
+        "col.active_border" = "rgba(${config.lib.stylix.colors.base0C}ff)";
+        "col.inactive_border" = "rgba(${config.lib.stylix.colors.base05}ff)";
         layout = "master";
       };
 
       decoration = {
         rounding = 10;
 
-        active_opacity = 0.95;
-        inactive_opacity = 0.95;
+        active_opacity = 0.9;
+        inactive_opacity = 0.9;
 
         blur = {
           enabled = true;
@@ -151,14 +148,14 @@ in {
 
         ## Hyprtrails
         hyprtrails = {
-          color = "rgba(${colors.base09}ff)";
+          color = "rgba(${config.lib.stylix.colors.base09}ff)";
         };
       };
     };
 
     plugins = [
       inputs.hyprland-plugins.packages."${pkgs.system}".hyprtrails
-      inputs.Hyprspace.packages."${pkgs.system}".Hyprspace
+      # inputs.Hyprspace.packages."${pkgs.system}".Hyprspace # Doesn't work with trails
     ];
   };
 }
