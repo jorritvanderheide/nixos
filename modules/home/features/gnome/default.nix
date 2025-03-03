@@ -67,8 +67,8 @@ in {
       };
 
       "org/gnome/desktop/background" = {
-        # picture-uri = "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}"; # Set by Stylix
-        picture-uri-dark = lib.mkForce "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
+        picture-uri = "file://${builtins.toPath ../../../../assets/images/wallpaper-light.jpg}";
+        picture-uri-dark = "file://${builtins.toPath ../../../../assets/images/wallpaper-dark.jpg}";
       };
 
       "org/gnome/desktop/datetime" = {
