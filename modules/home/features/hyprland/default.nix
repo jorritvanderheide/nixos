@@ -49,6 +49,7 @@
         "col.active_border" = "rgba(${config.lib.stylix.colors.base0C}ff)";
         "col.inactive_border" = "rgba(${config.lib.stylix.colors.base05}ff)";
         layout = "master";
+        resize_on_border = true;
       };
 
       decoration = {
