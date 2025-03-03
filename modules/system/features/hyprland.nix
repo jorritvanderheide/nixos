@@ -13,6 +13,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    bc
     brightnessctl
     cliphist
     dunst
