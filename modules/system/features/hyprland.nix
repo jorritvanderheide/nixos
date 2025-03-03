@@ -24,6 +24,7 @@
     nautilus
     nwg-look
     pipewire
+    playerctl
     swww
     udiskie
     wireplumber

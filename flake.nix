@@ -9,7 +9,7 @@
     disko.url = "github:nix-community/disko"; # Disk management
     home-manager.url = "github:nix-community/home-manager"; # User environment management
     hyprland.url = "github:hyprwm/Hyprland"; # Hyprland window manager
-    hyprpanel.url = "github:jas-singhfsu/hyprpanel"; # Hyprpanel bar
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel"; # Hyprpanel bar
     impermanence.url = "github:nix-community/impermanence"; # Ephemeral system configs
     stylix.url = "github:danth/stylix"; # Stylix theme manager
 

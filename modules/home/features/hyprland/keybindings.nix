@@ -9,12 +9,10 @@
       "$mod, C, exec, uwsm app -- code"
       "$mod, E, exec, uwsm app -- nautilus"
       "$mod, Q, killactive"
-      "$mod, S, exec, pkill wofi || uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)"
+
       "$mod SHIFT, C, exec, uwsm app -- hyprpicker -a"
       "$mod, V, exec, cliphist list | wuwsm app -- $(wofi --show dmenu) | cliphist decode | wl-copy"
-      # "$mod, F, togglefloating"
-      # "$mod, tab, overview:toggle"
-
+      "$mod, F, togglefloating"
       "$mod, space, togglespecialworkspace, special"
       "$mod SHIFT, space, movetoworkspace, special"
       "$mod CTRL, left, exec, hyprnome --previous --no-empty-before"
@@ -23,8 +21,10 @@
       "$mod CTRL SHIFT, right, exec, hyprnome --move --no-empty-before"
       "$mod CTRL SHIFT, Q, exec, hyprctl dispatch exit"
       "$mod, R, exec, hyprctl reload"
-      # "$mod SHIFT, T, exec, sh /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh toggle"
-      # "$mod, L, exec, hyprlock"
+    ];
+
+    bindr = [
+      "$mod, SUPER_L, exec, pkill wofi || uwsm app -- $(wofi --show drun --define=drun-print_desktop_file=true)"
     ];
 
     bindel = [
@@ -36,10 +36,10 @@
 
     bindl = [
       ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      # ", XF86AudioNext, exec, playerctl next"
-      # ", XF86AudioPause, exec, playerctl play-pause"
-      # ", XF86AudioPlay, exec, playerctl play-pause"
-      # ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioPause, exec, playerctl play-pause"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPrev, exec, playerctl previous"
     ];
 
     bindm = [
