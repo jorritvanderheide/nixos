@@ -21,7 +21,7 @@
     settings = {
       exec-once = [
         # Authentication agent
-        "systemctl - -user start hyprpolkitagent"
+        "systemctl --user enable --now hyprpolkitagent.service"
 
         # Bar
         "uwsm app -- hyprpanel"
