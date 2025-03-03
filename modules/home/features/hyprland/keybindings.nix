@@ -5,14 +5,12 @@
 
     bind = [
       "$mod, Return, exec, uwsm app -- blackbox"
-      "$mod, B, exec, uwsm app -- firefox"
+      "$mod, F, exec, uwsm app -- firefox"
       "$mod, C, exec, uwsm app -- code"
       "$mod, E, exec, uwsm app -- nautilus"
       "$mod, Q, killactive"
-
       "$mod SHIFT, C, exec, uwsm app -- hyprpicker -a"
       "$mod, V, exec, cliphist list | wuwsm app -- $(wofi --show dmenu) | cliphist decode | wl-copy"
-      "$mod, F, togglefloating"
       "$mod, space, togglespecialworkspace, special"
       "$mod SHIFT, space, movetoworkspace, special"
       "$mod CTRL, left, exec, hyprnome --previous --no-empty-before"
