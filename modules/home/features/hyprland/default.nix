@@ -50,6 +50,7 @@
         "col.inactive_border" = "rgba(${config.lib.stylix.colors.base05}ff)";
         layout = "master";
         resize_on_border = true;
+        hover_icon_on_border = true;
       };
 
       decoration = {
@@ -99,6 +100,8 @@
       input = {
         touchpad = {
           natural_scroll = true;
+          scroll_factor = 0.5;
+          drag_lock = true;
         };
       };
 
@@ -108,6 +111,8 @@
 
       gestures = {
         workspace_swipe = true;
+        workspace_swipe_direction_lock = false;
+        workspace_swipe_forever = true;
       };
 
       # Plugins

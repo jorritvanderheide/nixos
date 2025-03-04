@@ -10,7 +10,7 @@
       "$mod, E, exec, uwsm app -- nautilus"
       "$mod, Q, killactive"
       "$mod SHIFT, C, exec, uwsm app -- hyprpicker -a"
-      "$mod, V, exec, cliphist list | uwsm app -- $(wofi --show dmenu) | cliphist decode | wl-copy"
+      # "$mod, V, exec, cliphist list | uwsm app -- $(wofi --show dmenu) | cliphist decode | wl-copy"
       "$mod CTRL, left, exec, hyprnome --previous --no-empty-before"
       "$mod CTRL, right, exec, hyprnome --no-empty-before"
       "$mod CTRL SHIFT, left, exec, hyprnome --previous --move --no-empty-before"
@@ -18,6 +18,10 @@
       "$mod CTRL SHIFT, Q, exec, hyprctl dispatch exit"
       "$mod, R, exec, hyprctl reload"
       "$mod SHIFT, T, exec, sh /etc/nixos/modules/home/features/hyprland/scripts/set-wallpaper.sh toggle"
+
+      "$mod, down, movetoworkspacesilent, special:minimized"
+      "$mod, up, togglespecialworkspace, minimized"
+      "$mod, up, movetoworkspace, +0"
 
       "$mod, space, togglespecialworkspace, special"
       "$mod, 1, workspace, 1"
