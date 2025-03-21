@@ -9,6 +9,7 @@
     ## Features
     bambu-studio.enable = true;
     bitwarden.enable = true;
+    dbeaver.enable = true;
     direnv.enable = true;
     discord.enable = true;
     firefox.enable = true;
