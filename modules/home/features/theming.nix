@@ -11,9 +11,9 @@
 
   stylix = lib.mkDefault {
     enable = true;
-    autoEnable = true;
-    image = null; # Disable when https://github.com/danth/stylix/pull/717 is merged
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
+    autoEnable = false;
+    image = null;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     cursor = {
       package = pkgs.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
@@ -49,10 +49,10 @@
       light = "Tela-circle-light";
       dark = "Tela-circle-dark";
     };
-    targets = {
-      firefox.enable = false;
-      hyprland.enable = false;
-      vscode.enable = false;
-    };
+    # targets = {
+    #   firefox.enable = false;
+    #   hyprland.enable = false;
+    #   vscode.enable = false;
+    # };
   };
 }
