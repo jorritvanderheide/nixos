@@ -51,6 +51,7 @@
       git_branch = {
         style = "bold #99c23b";
         symbol = "🌱 ";
+        truncation_length = 4;
       };
 
       nix_shell = {
