@@ -52,6 +52,7 @@
         style = "bold #99c23b";
         symbol = "🌱 ";
         truncation_length = 4;
+        truncate_symbol = "";
       };
 
       nix_shell = {
