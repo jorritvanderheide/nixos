@@ -138,6 +138,7 @@ in {
             "caffeine@patapon.info"
             "clipboard-indicator@tudmotu.com"
             "color-picker@tuberry"
+            # "current-monitor-window-app-switcher@thmatosbr" # Add to nixpkgs
             "impatience@gfxmonk.net"
             "mprisLabel@moon-0xff.github.com"
             "nightthemeswitcher@romainvigier.fr"
