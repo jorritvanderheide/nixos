@@ -11,7 +11,7 @@
 
   stylix = lib.mkDefault {
     enable = true;
-    autoEnable = false;
+    autoEnable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     cursor = {
       package = pkgs.rose-pine-cursor;
@@ -48,10 +48,10 @@
       light = "Tela-circle-light";
       dark = "Tela-circle-dark";
     };
-    # targets = {
-    #   firefox.enable = false;
-    #   hyprland.enable = false;
-    #   vscode.enable = false;
-    # };
+    targets = {
+      firefox.enable = false;
+      hyprland.enable = false;
+      vscode.enable = false;
+    };
   };
 }
