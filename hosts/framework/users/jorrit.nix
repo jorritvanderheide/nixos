@@ -24,7 +24,7 @@
     signal.enable = true;
     spotify.enable = true;
     terminal.enable = true;
-    theming.enable = true;
+    # theming.enable = true;
     vlc.enable = true;
 
     ## VS Code
