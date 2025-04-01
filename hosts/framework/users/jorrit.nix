@@ -12,6 +12,7 @@
     dbeaver.enable = true;
     direnv.enable = true;
     discord.enable = true;
+    eduvpn.enable = true;
     firefox.enable = true;
     fish.enable = true;
     hyprland.enable = true; # Move to default user when done
