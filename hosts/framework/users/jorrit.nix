@@ -15,7 +15,6 @@
     eduvpn.enable = true;
     firefox.enable = true;
     fish.enable = true;
-    # hyprland.enable = true; # Move to default user when done
     impermanence.enable = true;
     matrix.enable = true;
     obsidian.enable = true;

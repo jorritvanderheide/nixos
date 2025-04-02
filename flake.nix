@@ -8,22 +8,8 @@
     base16.url = "github:SenchoPens/base16.nix"; # Base16 color scheme utility
     disko.url = "github:nix-community/disko"; # Disk management
     home-manager.url = "github:nix-community/home-manager"; # User environment management
-    hyprland.url = "github:hyprwm/Hyprland"; # Hyprland window manager
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel"; # Hyprpanel bar
     impermanence.url = "github:nix-community/impermanence"; # Ephemeral system configs
     stylix.url = "github:danth/stylix"; # Stylix theme manager
-
-    ## Hyprland plugins
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    ## Hyprspace overview
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     ## Bootloader management
     lanzaboote = {

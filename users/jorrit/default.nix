@@ -47,7 +47,6 @@
           gnomeExtensions.caffeine
           gnomeExtensions.clipboard-indicator
           gnomeExtensions.color-picker
-          # gnomeExtensions.current-monitor-window-app-switcher # Add to nixpkgs
           gnomeExtensions.dash-to-dock
           gnomeExtensions.impatience
           gnomeExtensions.mpris-label

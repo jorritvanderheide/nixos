@@ -50,7 +50,6 @@
     };
     targets = {
       firefox.enable = false;
-      hyprland.enable = false;
       vscode.enable = false;
     };
   };
