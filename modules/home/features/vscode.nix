@@ -82,6 +82,7 @@ in {
             ## Extensions settings
             "extensions.ignoreRecommendations" = true;
             "docker.composeCommand" = "docker compose";
+            "gitlens.codeLens.authors.enabled" = true;
             "prettier.requireConfig" = true;
             "tailwindCSS.rootFontSize" = 10;
 

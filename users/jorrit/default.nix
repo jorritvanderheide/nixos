@@ -29,14 +29,14 @@
 
     # myHome configuration
     myHome = {
-      ### Git
+      ## Git
       git = {
         enable = true;
         userName = "jorritvanderheide";
         userEmail = "35707261+jorritvanderheide@users.noreply.github.com";
       };
 
-      ### Gnome
+      ## Gnome
       gnome = {
         enable = true;
         gnomeExtensions = with pkgs; [

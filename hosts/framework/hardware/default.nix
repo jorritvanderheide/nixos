@@ -5,19 +5,19 @@
     ./hardware.nix
   ];
 
-  # Enable TPM
-  boot.initrd.availableKernelModules = ["tpm_tis"];
+  # Boot
+  boot.initrd.availableKernelModules = ["tpm_tis"]; # Enables TPM
 
   # Hardware
   hardware = {
-    # Logitech Bolt
+    ## Logitech Bolt
     logitech.wireless = {
       enable = true;
       enableGraphical = true;
     };
 
-    # Sensors
-    sensor.iio.enable = true;
+    ## Sensors
+    sensor.iio.enable = true; # Needed for auto-brightness
   };
 
   # Services
